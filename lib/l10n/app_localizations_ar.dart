@@ -1,0 +1,153 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
+import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
+
+/// The translations for Arabic (`ar`).
+class AppLocalizationsAr extends AppLocalizations {
+  AppLocalizationsAr([String locale = 'ar']) : super(locale);
+
+  @override
+  String get login_with_google => 'تسجيل الدخول باستخدام جوجل';
+
+  @override
+  String get or => 'أو';
+
+  @override
+  String get dont_havea_ccount => 'ليس لديك حساب؟';
+
+  @override
+  String get create_one => 'إنشاء حساب';
+
+  @override
+  String get login => 'تسجيل الدخول';
+
+  @override
+  String get forget_password_question => 'هل نسيت كلمة المرور؟';
+
+  @override
+  String get password => 'كلمة المرور';
+
+  @override
+  String get email => 'البريد الإلكتروني';
+
+  @override
+  String get genres => 'التصنيفات';
+
+  @override
+  String get summary => 'الملخص';
+
+  @override
+  String get cast => 'طاقم التمثيل';
+
+  @override
+  String get similar => 'أفلام مشابهة';
+
+  @override
+  String get screen_shots => 'لقطات الشاشة';
+
+  @override
+  String get intro_title => 'اعثر على فيلمك المفضل القادم هنا';
+
+  @override
+  String get intro_body =>
+      'احصل على مكتبة ضخمة من الأفلام التي تناسب جميع الأذواق. بالتأكيد ستجد ما يعجبك.';
+
+  @override
+  String get explore_now => 'استكشف الآن';
+
+  @override
+  String get onboarding1_title => 'اكتشف الأفلام';
+
+  @override
+  String get onboarding1_body =>
+      'استكشف مجموعة واسعة من الأفلام بجميع الجودات والتصنيفات. اعثر بسهولة على فيلمك المفضل القادم.';
+
+  @override
+  String get next => 'التالي';
+
+  @override
+  String get onboarding2_title => 'استكشف جميع التصنيفات';
+
+  @override
+  String get onboarding2_body =>
+      'اكتشف أفلامًا من جميع التصنيفات وبجميع الجودات المتاحة. اعثر على شيء جديد وممتع لمشاهدته كل يوم.';
+
+  @override
+  String get back => 'رجوع';
+
+  @override
+  String get onboarding3_title => 'أنشئ قوائم المشاهدة';
+
+  @override
+  String get onboarding3_body =>
+      'احفظ الأفلام في قائمة المشاهدة لتتبع ما تريد مشاهدته لاحقًا. استمتع بالأفلام بمختلف الجودات والتصنيفات.';
+
+  @override
+  String get onboarding4_title => 'قيّم وراجع وتعلّم';
+
+  @override
+  String get onboarding4_body =>
+      'شارك رأيك في الأفلام التي شاهدتها. تعمق في تفاصيل الأفلام وساعد الآخرين على اكتشاف أفلام رائعة من خلال تقييماتك.';
+
+  @override
+  String get onboarding5_title => 'ابدأ المشاهدة الآن';
+
+  @override
+  String get finish => 'إنهاء';
+
+  @override
+  String get register => 'إنشاء حساب';
+
+  @override
+  String get avatar => 'الصورة الشخصية';
+
+  @override
+  String get name => 'الاسم';
+
+  @override
+  String get confirm_password => 'تأكيد كلمة المرور';
+
+  @override
+  String get phone_number => 'رقم الهاتف';
+
+  @override
+  String get create_account => 'إنشاء الحساب';
+
+  @override
+  String get already_havea_account => 'لديك حساب بالفعل؟';
+
+  @override
+  String get forget_password => 'نسيت كلمة المرور';
+
+  @override
+  String get verify_email => 'تأكيد البريد الإلكتروني';
+
+  @override
+  String get see_more => 'عرض المزيد';
+
+  @override
+  String get watch => 'مشاهدة';
+
+  @override
+  String get search => 'بحث';
+
+  @override
+  String get watch_list => 'قائمة المشاهدة';
+
+  @override
+  String get history => 'السجل';
+
+  @override
+  String get reset_password => 'إعادة تعيين كلمة المرور';
+
+  @override
+  String get delete_account => 'حذف الحساب';
+
+  @override
+  String get update_data => 'تحديث البيانات';
+
+  @override
+  String get pick_avatar => 'اختيار صورة شخصية';
+}

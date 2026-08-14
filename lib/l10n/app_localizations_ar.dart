@@ -1,5 +1,6 @@
 // ignore: unused_import
 import 'package:intl/intl.dart' as intl;
+
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -150,4 +151,33 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get pick_avatar => 'اختيار صورة شخصية';
+
+  @override
+  String get repassword_doesnt_math_password =>
+      'كلمة المرور المؤكدة لا تطابق كلمة المرور';
+
+  @override
+  String get please_enter_confirm_password => 'يرجى إدخال تأكيد كلمة المرور';
+
+  @override
+  String get password_should_be_at_least_6_chars =>
+      'يجب أن تتكون كلمة المرور من 6 أحرف على الأقل';
+
+  @override
+  String get please_enter_password => 'يرجى إدخال كلمة المرور';
+
+  @override
+  String get please_enter_valid_Email => 'يرجى إدخال بريد إلكتروني صالح';
+
+  @override
+  String get please_enter_email => 'يرجى إدخال البريد الإلكتروني';
+
+  @override
+  String get please_enter_name => 'يرجى إدخال الاسم';
+
+  @override
+  String get please_enter_phone => 'يرجى إدخال رقم الهاتف';
+
+  @override
+  String get please_enter_correct_phone_number => 'يرجى إدخال رقم هاتف صحيح';
 }

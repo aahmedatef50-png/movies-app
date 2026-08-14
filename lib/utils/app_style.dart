@@ -18,6 +18,11 @@ class AppStyle {
       fontSize: 16,
       color: AppColor.whiteColor
   );
+  static TextStyle reg16Red = GoogleFonts.roboto(
+      fontWeight: FontWeight.w400,
+      fontSize: 16,
+      color: AppColor.redColor
+  );
   static TextStyle reg20White=GoogleFonts.roboto(
       fontWeight: FontWeight.w400,
       fontSize: 20,
@@ -28,6 +33,11 @@ class AppStyle {
       fontSize: 20,
       color: AppColor.darkGreyColor
   );
+  static TextStyle reg20Black = GoogleFonts.roboto(
+      fontWeight: FontWeight.w400,
+      fontSize: 20,
+      color: AppColor.blackColor
+  );
   static TextStyle reg14White=GoogleFonts.roboto(
       fontWeight: FontWeight.w400,
       fontSize: 14,
@@ -35,6 +45,11 @@ class AppStyle {
   );
   static TextStyle reg14Yellow=GoogleFonts.roboto(
       fontWeight: FontWeight.w400,
+      fontSize: 14,
+      color: AppColor.yellowColor
+  );
+  static TextStyle bold14Yellow = GoogleFonts.roboto(
+      fontWeight: FontWeight.bold,
       fontSize: 14,
       color: AppColor.yellowColor
   );

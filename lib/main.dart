@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:my_movies_app/ui/on_boarding/intro_screen.dart';
+import 'package:my_movies_app/ui/on_boarding/on_boarding_screen.dart';
+import 'package:my_movies_app/utils/app_route.dart';
 import 'package:my_movies_app/utils/app_theme.dart';
 
 import 'l10n/app_localizations.dart';
@@ -16,9 +18,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
+      initialRoute: AppRoute.onBoardingScreen,
       locale: Locale('en'),
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.dark,
+
     );
   }
 }

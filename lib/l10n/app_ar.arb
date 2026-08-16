@@ -44,5 +44,10 @@
   "reset_password": "إعادة تعيين كلمة المرور",
   "delete_account": "حذف الحساب",
   "update_data": "تحديث البيانات",
-  "pick_avatar": "اختيار صورة شخصية"
+  "pick_avatar": "اختيار صورة شخصية",
+  "profile": "الملف الشخصي",
+  "wish_list": "قائمة الأمنيات",
+  "edit_profile": "تعديل الملف الشخصي",
+  "exit": "خروج"
+
 }

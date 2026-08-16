@@ -150,4 +150,16 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get pick_avatar => 'اختيار صورة شخصية';
+
+  @override
+  String get profile => 'الملف الشخصي';
+
+  @override
+  String get wish_list => 'قائمة الأمنيات';
+
+  @override
+  String get edit_profile => 'تعديل الملف الشخصي';
+
+  @override
+  String get exit => 'خروج';
 }

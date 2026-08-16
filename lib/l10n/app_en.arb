@@ -44,5 +44,9 @@
   "reset_password": "Reset Password",
   "delete_account": "Delete Account",
   "update_data": "Update Data",
-  "pick_avatar": "Pick Avatar"
+  "pick_avatar": "Pick Avatar",
+  "profile": "Profile",
+  "wish_list": "Wish List",
+  "edit_profile": "Edit Profile",
+  "exit": "Exit"
 }

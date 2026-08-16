@@ -3,5 +3,6 @@ class AppRoute {
  static const loginScreen='login_screen';
  static const registerScreen='register_screen';
  static const onBoardingScreen='onBoarding_screen';
-
+ static const profileScreen = 'profile_screen';
+ static const editProfileScreen = 'edit_profile_screen';
 }

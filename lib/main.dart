@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:my_movies_app/ui/profile/profile.dart';
+import 'package:my_movies_app/ui/profile/update_profile.dart';
+import 'package:my_movies_app/utils/app_route.dart';
 import 'package:my_movies_app/utils/app_theme.dart';
 
 import 'l10n/app_localizations.dart';

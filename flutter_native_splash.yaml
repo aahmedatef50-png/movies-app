@@ -1,0 +1,15 @@
+flutter_native_splash:
+  color: "#121312"
+
+  image: assets/images/moviesSplash.png
+
+  fullscreen: true
+
+  android_12:
+    color: "#121312"
+
+    image: assets/images/splash_logo.png
+
+    icon_background_color: "#121312"
+
+    branding: assets/images/moviesBranding.png

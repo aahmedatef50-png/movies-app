@@ -88,7 +88,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     text1: AppLocalizations.of(context)!.dont_havea_ccount,
                     text2: AppLocalizations.of(context)!.create_one,
                     onTap: () {
-                      Navigator.of(context).pushNamed(AppRoute.registerScreen);
+
+                      // Navigator.of(context).pushNamed(AppRoute.registerScreen);
+                      Navigator.of(context).pushNamed(AppRoute.profileScreen);
                     },
                   ),
                   DividerOrWidget(),

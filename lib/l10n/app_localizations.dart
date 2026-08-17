@@ -427,6 +427,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Please enter correct phone number'**
   String get please_enter_correct_phone_number;
+
+  /// No description provided for @profile.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get profile;
+
+  /// No description provided for @wish_list.
+  ///
+  /// In en, this message translates to:
+  /// **'Wish List'**
+  String get wish_list;
+
+  /// No description provided for @edit_profile.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Profile'**
+  String get edit_profile;
+
+  /// No description provided for @exit.
+  ///
+  /// In en, this message translates to:
+  /// **'Exit'**
+  String get exit;
 }
 
 class _AppLocalizationsDelegate

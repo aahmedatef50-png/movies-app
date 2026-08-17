@@ -180,4 +180,16 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get please_enter_correct_phone_number =>
       'Please enter correct phone number';
+
+  @override
+  String get profile => 'Profile';
+
+  @override
+  String get wish_list => 'Wish List';
+
+  @override
+  String get edit_profile => 'Edit Profile';
+
+  @override
+  String get exit => 'Exit';
 }

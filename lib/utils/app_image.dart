@@ -36,6 +36,14 @@ class AppImage {
   static const String profileSelectedIcon="${_path}profile_selected_icon.png";
   static const String browseSelectedIcon="${_path}browse_selected_icon.png";
   static const String searchSelectedIcon="${_path}search_selected_icon.png";
+
   static const String egyptFlag = "${_path}egypt_flag.png";
   static const String unitedStateFlag = "${_path}united-states-flag.png";
+
+  static const String exitIcon="${_path}exit_icon.png";
+  static const String popCorn="${_path}pop_corn.png";
+  static const String userIcon="${_path}user_icon.png";
+
+
+
 }

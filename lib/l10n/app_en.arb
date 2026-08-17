@@ -53,5 +53,11 @@
   "please_enter_email": "Please enter email",
   "please_enter_name": "Please enter name",
   "please_enter_phone": "Please enter phone number",
-  "please_enter_correct_phone_number": "Please enter correct phone number"
+  "please_enter_correct_phone_number": "Please enter correct phone number",
+
+  "profile": "Profile",
+  "wish_list": "Wish List",
+  "edit_profile": "Edit Profile",
+  "exit": "Exit"
+
 }

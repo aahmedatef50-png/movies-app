@@ -5,11 +5,14 @@ import '../../utils/app_config.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   CustomElevatedButton(
-      {super.key, required this.child, required this.onTap, this.backgroundColor});
+      {super.key, required this.child, required this.onTap, this.backgroundColor, this.sideColor});
 
   Color? backgroundColor;
   Widget child;
   VoidCallback onTap;
+  Color? sideColor;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +21,9 @@ class CustomElevatedButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         padding: EdgeInsets.symmetric(vertical: height * 0.017),
         backgroundColor: backgroundColor ?? AppColor.yellowColor,
+        side: BorderSide(
+            color: sideColor ?? AppColor.transparentColor
+        ),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       ),
       onPressed: onTap,

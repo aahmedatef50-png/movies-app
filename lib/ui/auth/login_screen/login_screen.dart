@@ -89,8 +89,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     text2: AppLocalizations.of(context)!.create_one,
                     onTap: () {
 
-                      // Navigator.of(context).pushNamed(AppRoute.registerScreen);
-                      Navigator.of(context).pushNamed(AppRoute.profileScreen);
+                      Navigator.of(context).pushNamed(AppRoute.registerScreen);
                     },
                   ),
                   DividerOrWidget(),
@@ -138,6 +137,7 @@ class _LoginScreenState extends State<LoginScreen> {
   void login() {
     if (_formKey.currentState?.validate() == true) {
       //todo:login
+      Navigator.of(context).pushNamed(AppRoute.homeScreen);
     }
   }
 }

@@ -35,7 +35,6 @@ class CustomTextFormFeild extends StatelessWidget {
       obscureText: obscure,
       obscuringCharacter: '*',
       decoration: InputDecoration(
-        errorStyle: AppStyle.reg16Yellow,
         hintText: hintText,
         hintStyle: AppStyle.reg16White,
         prefixIcon: prefixIcon,

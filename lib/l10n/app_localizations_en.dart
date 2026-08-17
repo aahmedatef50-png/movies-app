@@ -150,4 +150,34 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get pick_avatar => 'Pick Avatar';
+
+  @override
+  String get repassword_doesnt_math_password =>
+      'Repassword doesn\'t math password';
+
+  @override
+  String get please_enter_confirm_password => 'Please enter confirm password';
+
+  @override
+  String get password_should_be_at_least_6_chars =>
+      'Password should be at least 6 chars';
+
+  @override
+  String get please_enter_password => 'Please enter password';
+
+  @override
+  String get please_enter_valid_Email => 'Please enter valid Email';
+
+  @override
+  String get please_enter_email => 'Please enter email';
+
+  @override
+  String get please_enter_name => 'Please enter name';
+
+  @override
+  String get please_enter_phone => 'Please enter phone number';
+
+  @override
+  String get please_enter_correct_phone_number =>
+      'Please enter correct phone number';
 }

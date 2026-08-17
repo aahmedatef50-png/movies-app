@@ -373,6 +373,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Pick Avatar'**
   String get pick_avatar;
+
+  /// No description provided for @repassword_doesnt_math_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Repassword doesn\'t math password'**
+  String get repassword_doesnt_math_password;
+
+  /// No description provided for @please_enter_confirm_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter confirm password'**
+  String get please_enter_confirm_password;
+
+  /// No description provided for @password_should_be_at_least_6_chars.
+  ///
+  /// In en, this message translates to:
+  /// **'Password should be at least 6 chars'**
+  String get password_should_be_at_least_6_chars;
+
+  /// No description provided for @please_enter_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter password'**
+  String get please_enter_password;
+
+  /// No description provided for @please_enter_valid_Email.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter valid Email'**
+  String get please_enter_valid_Email;
+
+  /// No description provided for @please_enter_email.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter email'**
+  String get please_enter_email;
+
+  /// No description provided for @please_enter_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter name'**
+  String get please_enter_name;
+
+  /// No description provided for @please_enter_phone.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter phone number'**
+  String get please_enter_phone;
+
+  /// No description provided for @please_enter_correct_phone_number.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter correct phone number'**
+  String get please_enter_correct_phone_number;
 }
 
 class _AppLocalizationsDelegate

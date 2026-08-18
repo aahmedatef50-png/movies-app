@@ -4,6 +4,8 @@ import 'package:my_movies_app/ui/widget/edit_profile_widgets/edit_inputs.dart';
 import 'package:my_movies_app/ui/widget/edit_profile_widgets/edit_profile_buttons.dart';
 import 'package:my_movies_app/ui/widget/edit_profile_widgets/edit_profile_image_button.dart';
 import 'package:my_movies_app/utils/app_color.dart';
+import 'package:my_movies_app/utils/app_config.dart';
+import 'package:my_movies_app/utils/app_route.dart';
 import 'package:my_movies_app/utils/app_style.dart';
 
 class UpdateProfile extends StatefulWidget {
@@ -17,6 +19,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
   int profileIndex=1;
   @override
   Widget build(BuildContext context) {
+    var height = AppConfig.height(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.edit_profile,style: AppStyle.reg16Yellow,),
@@ -31,22 +34,32 @@ class _UpdateProfileState extends State<UpdateProfile> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          spacing: 35,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            EditProfileImageButton(profileIndex: profileIndex,onAvatarChanged: (newIndex){
-              setState(() {
-                profileIndex=newIndex;
-              });
-            },),
-            EditInputs(nameController: nameController,phoneController: phoneController),
-            Text(AppLocalizations.of(context)!.reset_password,
-            style: AppStyle.reg20White,
-            ),
-            Expanded(child: Container()),
-            EditProfileButtons()
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            spacing: 35,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              EditProfileImageButton(
+                profileIndex: profileIndex, onAvatarChanged: (newIndex) {
+                setState(() {
+                  profileIndex = newIndex;
+                });
+              },),
+              EditInputs(nameController: nameController,
+                  phoneController: phoneController),
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed(
+                      AppRoute.forgetPasswordScreen);
+                },
+                child: Text(AppLocalizations.of(context)!.reset_password,
+                  style: AppStyle.reg20White,
+                ),
+              ),
+              SizedBox(height: height * 0.18,),
+              EditProfileButtons()
+            ],
+          ),
         ),
       ),
     );

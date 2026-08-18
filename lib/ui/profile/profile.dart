@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:my_movies_app/l10n/app_localizations.dart';
+import 'package:my_movies_app/ui/widget/custom_elevated_button.dart';
 import 'package:my_movies_app/ui/widget/profile_widgets/custom_count_label.dart';
 import 'package:my_movies_app/ui/widget/profile_widgets/custom_tabBar.dart';
 import 'package:my_movies_app/ui/widget/profile_widgets/custom_tabbar_view.dart';
-import 'package:my_movies_app/ui/widget/custom_elevated_button.dart';
 import 'package:my_movies_app/ui/widget/profile_widgets/profile_icon_name.dart';
 import 'package:my_movies_app/utils/app_color.dart';
+import 'package:my_movies_app/utils/app_config.dart';
 import 'package:my_movies_app/utils/app_image.dart';
 import 'package:my_movies_app/utils/app_route.dart';
 import 'package:my_movies_app/utils/app_style.dart';
@@ -14,6 +15,7 @@ class Profile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = AppConfig.width(context);
     return DefaultTabController(
       length: 2,
       child: Scaffold(
@@ -29,11 +31,15 @@ class Profile extends StatelessWidget {
                     spacing: 20,
                     children: [
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        spacing: width * 0.07,
                         children: [
                           ProfileIconName(name: "John Safwat",iconIndex: 1,),
-                          CustomCountlabel(label: AppLocalizations.of(context)!.wish_list,count: 100,),
-                          CustomCountlabel(label: AppLocalizations.of(context)!.history,count: 10,),
+                          Expanded(child: CustomCountlabel(
+                            label: AppLocalizations.of(context)!.wish_list,
+                            count: 100,)),
+                          Expanded(child: CustomCountlabel(
+                            label: AppLocalizations.of(context)!.history,
+                            count: 10,)),
 
                         ],
                       ),

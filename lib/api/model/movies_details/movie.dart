@@ -1,4 +1,4 @@
-import 'Torrents.dart';
+import '../movies/torrents.dart';
 import 'cast.dart';
 
 class Movie {

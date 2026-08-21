@@ -1,5 +1,6 @@
 // ignore: unused_import
 import 'package:intl/intl.dart' as intl;
+
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -191,4 +192,34 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get exit => 'خروج';
+
+  @override
+  String get dio_exception_cancel => 'تم إلغاء الطلب. يُرجى المحاولة مرة أخرى.';
+
+  @override
+  String get dio_exception_connection_time_out =>
+      'الاتصال يستغرق وقتًا طويلًا. يُرجى المحاولة مرة أخرى.';
+
+  @override
+  String get dio_exception_unkown =>
+      'حدث خطأ ما. يُرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى.';
+
+  @override
+  String get dio_exception_recevie_time_out =>
+      'الخادم يستغرق وقتًا طويلًا في الاستجابة. يُرجى المحاولة مرة أخرى.';
+
+  @override
+  String get dio_exception_connection_error =>
+      'لا يوجد اتصال بالإنترنت. يُرجى التحقق من اتصالك والمحاولة مرة أخرى.';
+
+  @override
+  String get dio_exception_bad_response =>
+      'حدث خطأ ما. يُرجى المحاولة مرة أخرى لاحقًا.';
+
+  @override
+  String get dio_exception_send_time_out =>
+      'حدث خطأ أثناء تحميل البيانات. يُرجى المحاولة مرة أخرى.';
+
+  @override
+  String get try_again => 'حاول مرة أخرى';
 }

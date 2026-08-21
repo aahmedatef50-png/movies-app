@@ -58,6 +58,14 @@
   "profile": "Profile",
   "wish_list": "Wish List",
   "edit_profile": "Edit Profile",
-  "exit": "Exit"
+  "exit": "Exit",
+  "dio_exception_cancel": "The request was cancelled. Please try again.",
+  "dio_exception_connection_time_out": "The connection is taking too long. Please try again.",
+  "dio_exception_unkown": "Something went wrong. Please check your internet connection and try again.",
+  "dio_exception_recevie_time_out": "The server is taking too long to respond. Please try again.",
+  "dio_exception_connection_error": "No internet connection. Please check your connection and try again.",
+  "dio_exception_bad_response": "Something went wrong. Please try again later.",
+  "dio_exception_send_time_out": "Something went wrong while loading the data. Please try again.",
+  "try_again": "try again"
 
 }

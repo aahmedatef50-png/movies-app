@@ -451,6 +451,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Exit'**
   String get exit;
+
+  /// No description provided for @dio_exception_cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'The request was cancelled. Please try again.'**
+  String get dio_exception_cancel;
+
+  /// No description provided for @dio_exception_connection_time_out.
+  ///
+  /// In en, this message translates to:
+  /// **'The connection is taking too long. Please try again.'**
+  String get dio_exception_connection_time_out;
+
+  /// No description provided for @dio_exception_unkown.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong. Please check your internet connection and try again.'**
+  String get dio_exception_unkown;
+
+  /// No description provided for @dio_exception_recevie_time_out.
+  ///
+  /// In en, this message translates to:
+  /// **'The server is taking too long to respond. Please try again.'**
+  String get dio_exception_recevie_time_out;
+
+  /// No description provided for @dio_exception_connection_error.
+  ///
+  /// In en, this message translates to:
+  /// **'No internet connection. Please check your connection and try again.'**
+  String get dio_exception_connection_error;
+
+  /// No description provided for @dio_exception_bad_response.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong. Please try again later.'**
+  String get dio_exception_bad_response;
+
+  /// No description provided for @dio_exception_send_time_out.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong while loading the data. Please try again.'**
+  String get dio_exception_send_time_out;
+
+  /// No description provided for @try_again.
+  ///
+  /// In en, this message translates to:
+  /// **'try again'**
+  String get try_again;
 }
 
 class _AppLocalizationsDelegate

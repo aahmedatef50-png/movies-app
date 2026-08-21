@@ -1,5 +1,6 @@
 // ignore: unused_import
 import 'package:intl/intl.dart' as intl;
+
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -192,4 +193,35 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get exit => 'Exit';
+
+  @override
+  String get dio_exception_cancel =>
+      'The request was cancelled. Please try again.';
+
+  @override
+  String get dio_exception_connection_time_out =>
+      'The connection is taking too long. Please try again.';
+
+  @override
+  String get dio_exception_unkown =>
+      'Something went wrong. Please check your internet connection and try again.';
+
+  @override
+  String get dio_exception_recevie_time_out =>
+      'The server is taking too long to respond. Please try again.';
+
+  @override
+  String get dio_exception_connection_error =>
+      'No internet connection. Please check your connection and try again.';
+
+  @override
+  String get dio_exception_bad_response =>
+      'Something went wrong. Please try again later.';
+
+  @override
+  String get dio_exception_send_time_out =>
+      'Something went wrong while loading the data. Please try again.';
+
+  @override
+  String get try_again => 'try again';
 }

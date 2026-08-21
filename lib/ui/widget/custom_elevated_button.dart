@@ -15,9 +15,14 @@ class CustomElevatedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var height = AppConfig.height(context);
+    var width = AppConfig.width(context);
+
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        padding: EdgeInsets.symmetric(vertical: height * 0.017),
+        padding: EdgeInsets.symmetric(
+            vertical: height * 0.017,
+            horizontal: width * 0.02
+        ),
         backgroundColor: backgroundColor ?? AppColor.yellowColor,
         side: BorderSide(
             color: sideColor ?? AppColor.transparentColor

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_movies_app/Ui/home/tabs/browser_tab.dart';
 import 'package:my_movies_app/Ui/home/tabs/home_tab.dart';
 import 'package:my_movies_app/Ui/home/tabs/search_tab.dart';
+import 'package:my_movies_app/Ui/home/widget/custom_bottom_navbar.dart';
 import 'package:my_movies_app/utils/app_color.dart';
 import 'package:my_movies_app/utils/app_config.dart';
 import 'package:my_movies_app/utils/app_image.dart';
@@ -14,78 +15,82 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int selectedIndex=0;
+  int currentIndex = 0;
 
-  List<Widget> tabsList = [
-    HomeTab(),
-    SearchTab(),
-    BrowserTab()
-  ];
+
 
   @override
   Widget build(BuildContext context) {
     var width = AppConfig.width(context);
     var height = AppConfig.height(context);
     return Scaffold(
-      body: tabsList[selectedIndex] ,
-      bottomNavigationBar: Container(
-        padding: EdgeInsets.symmetric(
-          horizontal: width*0.04,
-          vertical: height*0.04
-        ),
-        child: ClipRRect(
+        body:Stack(
 
-          borderRadius: BorderRadius.circular(16),
+          children: [
+            IndexedStack(
+              index: currentIndex,
+              children: [
+                HomeTab(),
+                SearchTab(),
+                BrowserTab()
+              ],
+            ),
+            Positioned(
+              left: width*0.05,
+                right: width*0.05,
+                bottom:40 ,
+                child:Container(
+                  height: height*0.06,
 
-          child: Theme(
-            data: Theme.of(context).copyWith(canvasColor: AppColor.darkGreyColor),
-            child: BottomNavigationBar(
+                  decoration: BoxDecoration(
+                    color: AppColor.darkGreyColor,
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: Row(
 
-              selectedItemColor: Theme.of(context).bottomNavigationBarTheme.selectedItemColor,
-                unselectedItemColor: Theme.of(context).bottomNavigationBarTheme.unselectedItemColor,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      CustomBottomNavbar(onPresses: (){
+                        setState(() {
+                          currentIndex = 0;
+                        });
+                      },
+                          isSelected: currentIndex==0,
+                          selectedIcon: AppImage.homeSelectedIcon,
+                          unselectedIcon: AppImage.homeIcon),
+                      CustomBottomNavbar(onPresses: (){
+                        setState(() {
+                          currentIndex = 1;
+                        });
+                      },
+                          isSelected: currentIndex==1,
+                          selectedIcon: AppImage.searchSelectedIcon,
+                          unselectedIcon: AppImage.searchIcon),
+                      CustomBottomNavbar(onPresses: (){
+                        setState(() {
+                          currentIndex = 2;
+                        });
+                      },
+                          isSelected: currentIndex==2,
+                          selectedIcon: AppImage.browseSelectedIcon,
+                          unselectedIcon: AppImage.browseIcon),
 
-                currentIndex: selectedIndex,
-                onTap: (index){
-                selectedIndex=index;
-                setState(() {
+                    CustomBottomNavbar(onPresses: (){
+                        setState(() {
+                          currentIndex = 3;
+                        });
+                      },
+                          isSelected: currentIndex==3,
+                          selectedIcon: AppImage.profileSelectedIcon,
+                          unselectedIcon: AppImage.profileIcon),
 
-                });
-                },
-                items: [
-                  _builtbottomNavigationBarItem(
-                      selectedIcon: Image.asset(AppImage.homeSelectedIcon),
-                      unselectedIcon: Image.asset(AppImage.homeIcon),
-                      isSelected: selectedIndex==0,),
-                  _builtbottomNavigationBarItem(
-                      selectedIcon: Image.asset(AppImage.searchSelectedIcon),
-                      unselectedIcon: Image.asset(AppImage.searchIcon),
-                      isSelected: selectedIndex==1),
-                  _builtbottomNavigationBarItem(
-                      selectedIcon: Image.asset(AppImage.browseSelectedIcon),
-                      unselectedIcon: Image.asset(AppImage.browseIcon),
-                      isSelected: selectedIndex==2),
-                  _builtbottomNavigationBarItem(
-                      selectedIcon: Image.asset(AppImage.profileSelectedIcon),
-                      unselectedIcon: Image.asset(AppImage.profileIcon),
-                      isSelected: selectedIndex==3),
-            ]),
-          ),
-        ),
-      ),
-    );
+
+
+                    ],
+                  ),
+                ))
+          ],
+        ));
   }
-
-   BottomNavigationBarItem _builtbottomNavigationBarItem({
-     required Widget selectedIcon,
-     required Widget unselectedIcon,
-
-     required bool isSelected,
-   }) {
-     return BottomNavigationBarItem(
-       icon: isSelected ? selectedIcon : unselectedIcon,
-       label: ''
-
-     );
-   }
 
 }

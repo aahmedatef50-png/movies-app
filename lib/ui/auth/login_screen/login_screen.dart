@@ -162,7 +162,7 @@ class _LoginScreenState extends State<LoginScreen> {
               context: context,
               posAction: AppLocalizations.of(context)!.ok,
               posActions: () {
-                Navigator.of(context).pushNamed(AppRoute.homeScreen);
+                Navigator.of(context).pushReplacementNamed(AppRoute.homeScreen);
               },
               content: state.successMessage,
               title: state.title);

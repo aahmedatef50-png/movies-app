@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_movies_app/cubit/image_index_cubit.dart';
 import 'package:my_movies_app/l10n/app_localizations.dart';
 import 'package:my_movies_app/ui/auth/register_screen/avatar_slider.dart';
 import 'package:my_movies_app/ui/auth/register_screen/cubit/register_states.dart';
@@ -23,7 +24,7 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  String selectedAvatar = '';
+
   final _formKey = GlobalKey<FormState>();
   bool switchWidget = false;
   bool obscure = true;
@@ -35,11 +36,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
   TextEditingController phoneController = TextEditingController();
   RegisterViewModel viewModel = RegisterViewModel();
 
-
   @override
   Widget build(BuildContext context) {
     var height = AppConfig.height(context);
     var width = AppConfig.width(context);
+
 
     return BlocConsumer<RegisterViewModel, RegisterStates>(
       bloc: viewModel,
@@ -75,7 +76,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   children: [
                     SizedBox(
                       height: height * 0.15,
-                      child: AvatarSlider(selectedAvatar: selectedAvatar),
+                      child: AvatarSlider(),
                     ),
                     Text(
                       AppLocalizations.of(context)!.avatar,
@@ -109,9 +110,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                     CustomElevatedButton(
                       onTap: () {
+                        final selectedAvatar =
+                            context
+                                .read<ImageIndexCubit>()
+                                .state;
                         return viewModel.register(
-                            passwordController.text, emailController.text,
-                            context, _formKey);
+                          passwordController.text,
+                          emailController.text,
+                          context,
+                          _formKey,
+                          nameController.text,
+                          selectedAvatar,
+                          phoneController.text,
+                        );
                       },
                       child: CustomTextElevatedButton(
                         text: AppLocalizations.of(context)!.create_account,
@@ -162,8 +173,5 @@ class _RegisterScreenState extends State<RegisterScreen> {
         }
       },
     );
-
   }
-
-
 }

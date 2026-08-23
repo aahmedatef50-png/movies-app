@@ -73,6 +73,7 @@
   "loading": "Loading....",
   "register_successfully": "Register Successfully",
   "login_successfully": "Login Successfully",
-  "please_check_your_email_to_reset_password": "Please Check Your Email to Reset Password"
+  "please_check_your_email_to_reset_password": "Please Check Your Email to Reset Password",
+  "profile_updated_successfully": "'Profile Updated Successfully"
 
 }

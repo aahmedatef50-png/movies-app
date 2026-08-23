@@ -1,13 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_movies_app/cubit/image_index_cubit.dart';
 
 import '../../../model/app_model.dart';
 import '../../../utils/app_config.dart';
 
 class AvatarSlider extends StatelessWidget {
-  AvatarSlider({super.key, required this.selectedAvatar});
-
-  String selectedAvatar;
+  AvatarSlider({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class AvatarSlider extends StatelessWidget {
       itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) =>
           GestureDetector(
             onTap: () {
-              selectedAvatar = AppModel.avatars[itemIndex];
+              context.read<ImageIndexCubit>().changeIndex(itemIndex);
             },
             child: Image.asset(
               AppModel.avatars[itemIndex],

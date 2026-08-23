@@ -36,6 +36,8 @@ class UtilsDialog {
     required String content,
     required String title,
     String? posAction,
+    String? negAction,
+    VoidCallback? negActions,
     VoidCallback? posActions,
   }) {
     showDialog(
@@ -51,6 +53,17 @@ class UtilsDialog {
                 posActions?.call();
               },
               child: Text(posAction, style: AppStyle.reg16Yellow),
+            ),
+          );
+        }
+        if (negAction != null) {
+          actions.add(
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+                negActions?.call();
+              },
+              child: Text(negAction, style: AppStyle.reg16Yellow),
             ),
           );
         }

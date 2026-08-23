@@ -541,6 +541,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Please Check Your Email to Reset Password'**
   String get please_check_your_email_to_reset_password;
+
+  /// No description provided for @profile_updated_successfully.
+  ///
+  /// In en, this message translates to:
+  /// **'\'Profile Updated Successfully'**
+  String get profile_updated_successfully;
 }
 
 class _AppLocalizationsDelegate

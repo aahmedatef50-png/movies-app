@@ -2,8 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:my_movies_app/cubit/my_user_cubit.dart';
 import 'package:my_movies_app/l10n/app_localizations.dart';
+import 'package:my_movies_app/model/my_user.dart';
 import 'package:my_movies_app/ui/auth/login_screen/cubit/login_states.dart';
+import 'package:my_movies_app/utils/firebase_utils.dart';
 
 class LoginViewModel extends Cubit<LoginStates> {
   LoginViewModel() : super(LoginInitialState());
@@ -23,6 +26,14 @@ class LoginViewModel extends Cubit<LoginStates> {
         );
         final credential = await FirebaseAuth.instance
             .signInWithEmailAndPassword(email: email, password: password);
+        final userSubscription = FirebaseUtils
+            .getUserFromFireStore(credential.user?.uid ?? '')
+            .listen((user) {
+          if (user != null) {
+            context.read<MyUserCubit>().changeUser(user);
+          }
+        });
+
         emit(
           LoginSuccessState(
             title: AppLocalizations.of(context)!.success,
@@ -44,7 +55,10 @@ class LoginViewModel extends Cubit<LoginStates> {
     try {
       emit(LoginLoadingState(
           loadingMessage: AppLocalizations.of(context)!.loading));
-      final GoogleSignIn googleSignIn = GoogleSignIn();
+      final GoogleSignIn googleSignIn = GoogleSignIn(
+        serverClientId:
+        '721783966481-d6nrj5k0799g9qes83kav10o3rh84mj3.apps.googleusercontent.com',
+      );
 
       // Trigger the authentication flow
       await googleSignIn.signOut();
@@ -61,6 +75,25 @@ class LoginViewModel extends Cubit<LoginStates> {
 
       // Once signed in, return the UserCredential
       await FirebaseAuth.instance.signInWithCredential(credential);
+      MyUser myUser = MyUser(name: googleUser?.displayName ?? '',
+          email: googleUser?.email ?? "",
+          id: googleUser?.id ?? '',
+          imageIndex: 0,
+          phoneNumber: 'null');
+      if (myUser.id == googleUser!.id) {
+        final userSubscription = FirebaseUtils
+            .getUserFromFireStore(googleUser?.id ?? '')
+            .listen((user) {
+          if (user != null) {
+            context.read<MyUserCubit>().changeUser(user);
+          }
+        });
+      } else {
+        FirebaseUtils.addUserInFireStore(myUser);
+        context.read<MyUserCubit>().changeUser(myUser);
+      }
+
+
       emit(
         LoginSuccessState(
           title: AppLocalizations.of(context)!.success,

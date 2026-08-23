@@ -1,5 +1,6 @@
 // ignore: unused_import
 import 'package:intl/intl.dart' as intl;
+
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -243,4 +244,7 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get please_check_your_email_to_reset_password =>
       'يرجى التحقق من بريدك الإلكتروني لإعادة تعيين كلمة المرور';
+
+  @override
+  String get profile_updated_successfully => 'تم تحديث الملف الشخصي بنجاح';
 }

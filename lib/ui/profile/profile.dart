@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_movies_app/cubit/my_user_cubit.dart';
 import 'package:my_movies_app/l10n/app_localizations.dart';
 import 'package:my_movies_app/ui/widget/custom_elevated_button.dart';
 import 'package:my_movies_app/ui/widget/profile_widgets/custom_count_label.dart';
@@ -16,6 +18,9 @@ class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var width = AppConfig.width(context);
+    final myUser = context
+        .watch<MyUserCubit>()
+        .state;
     return DefaultTabController(
       length: 2,
       child: Scaffold(
@@ -33,8 +38,12 @@ class Profile extends StatelessWidget {
                       Row(
                         spacing: width * 0.07,
                         children: [
-                          ProfileIconName(name: "John Safwat",iconIndex: 1,),
-                          Expanded(child: CustomCountlabel(
+                          Expanded(
+                              child: ProfileIconName(name: myUser.name,
+                                iconIndex: myUser.imageIndex,)),
+                          Expanded(
+
+                              child: CustomCountlabel(
                             label: AppLocalizations.of(context)!.wish_list,
                             count: 100,)),
                           Expanded(child: CustomCountlabel(
@@ -62,7 +71,11 @@ class Profile extends StatelessWidget {
                           Expanded(
                             flex: 2,
                             child: CustomElevatedButton(
-                              onTap: (){},
+                              onTap: () {
+                                Navigator.pushNamedAndRemoveUntil(
+                                  context, AppRoute.loginScreen, (
+                                    route) => false,);
+                              },
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 spacing: 10,

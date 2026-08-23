@@ -2,7 +2,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_movies_app/Ui/home/home_screen.dart';
+import 'package:my_movies_app/cubit/image_index_cubit.dart';
 import 'package:my_movies_app/cubit/language_cubit.dart';
+import 'package:my_movies_app/cubit/my_user_cubit.dart';
 import 'package:my_movies_app/ui/auth/forget_password_screen/forget_password_screen.dart';
 import 'package:my_movies_app/ui/auth/login_screen/login_screen.dart';
 import 'package:my_movies_app/ui/auth/register_screen/register_screen.dart';
@@ -20,9 +22,14 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  Bloc.observer = MyBlocObserver();
-  runApp(BlocProvider(create: (BuildContext context) => LanguageCubit(),
-      child: MyApp()));
+  Bloc.observer = MyBlocObserver();unApp(
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (BuildContext context) => LanguageCubit()),
+        BlocProvider(create: (context) => ImageIndexCubit()),
+        BlocProvider(create: (context) => MyUserCubit()),
+      ],
+      chichild: MyApp()));
 }
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

@@ -221,4 +221,22 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get try_again => 'حاول مرة أخرى';
+
+  @override
+  String get ok => 'حسنًا';
+
+  @override
+  String get error => 'خطأ';
+
+  @override
+  String get success => 'نجاح';
+
+  @override
+  String get loading => 'جارٍ التحميل....';
+
+  @override
+  String get register_successfully => 'تم التسجيل بنجاح';
+
+  @override
+  String get login_successfully => 'تم تسجيل الدخول بنجاح';
 }

@@ -223,4 +223,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get try_again => 'try again';
+
+  @override
+  String get ok => 'ok';
+
+  @override
+  String get error => 'Error';
+
+  @override
+  String get success => 'Success';
+
+  @override
+  String get loading => 'Loading....';
+
+  @override
+  String get register_successfully => 'Register Successfully';
+
+  @override
+  String get login_successfully => 'Login Successfully';
 }

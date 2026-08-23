@@ -116,13 +116,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   Column(
                     children: [
-                      CustomAnimatedSwitch(
-                        switchWidget: switchWidget,
-                        onClick: (value) {
-                          switchWidget = value;
-                          setState(() {});
-                        },
-                      ),
+                      CustomAnimatedSwitch(),
                     ],
                   ),
                 ],

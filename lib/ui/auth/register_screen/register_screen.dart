@@ -154,7 +154,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             context: context,
             content: state.successMessage,
             posActions: () {
-              Navigator.pushNamed(context, AppRoute.homeScreen);
+              Navigator.pop(context);
             },
             posAction: AppLocalizations.of(context)!.ok,
             title: state.title,

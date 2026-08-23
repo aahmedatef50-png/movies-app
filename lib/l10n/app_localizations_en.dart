@@ -241,4 +241,8 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get login_successfully => 'Login Successfully';
+
+  @override
+  String get please_check_your_email_to_reset_password =>
+      'Please Check Your Email to Reset Password';
 }

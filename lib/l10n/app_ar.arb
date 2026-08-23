@@ -73,7 +73,8 @@
   "success": "نجاح",
   "loading": "جارٍ التحميل....",
   "register_successfully": "تم التسجيل بنجاح",
-  "login_successfully": "تم تسجيل الدخول بنجاح"
+  "login_successfully": "تم تسجيل الدخول بنجاح",
+  "please_check_your_email_to_reset_password": "يرجى التحقق من بريدك الإلكتروني لإعادة تعيين كلمة المرور"
 
 
 }

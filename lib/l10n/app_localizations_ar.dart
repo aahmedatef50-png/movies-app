@@ -239,4 +239,8 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get login_successfully => 'تم تسجيل الدخول بنجاح';
+
+  @override
+  String get please_check_your_email_to_reset_password =>
+      'يرجى التحقق من بريدك الإلكتروني لإعادة تعيين كلمة المرور';
 }

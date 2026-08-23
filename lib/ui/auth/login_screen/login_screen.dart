@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:icon_plus/icon_plus.dart';
@@ -33,6 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
   bool obsure = true;
   final _formKey = GlobalKey<FormState>();
   LoginViewModel viewModel = LoginViewModel();
+
 
   @override
   Widget build(BuildContext context) {
@@ -111,6 +111,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       DividerOrWidget(),
 
                       CustomElevatedButton(
+                        onTap: () {
+                          return viewModel.loginWithGoogle(context);
+                        },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           spacing: width * 0.02,
@@ -129,7 +132,6 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ],
                         ),
-                        onTap: () {},
                       ),
                       Column(
                         children: [
@@ -169,5 +171,6 @@ class _LoginScreenState extends State<LoginScreen> {
     );
 
   }
+
 
 }

@@ -108,7 +108,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       },
                     ),
                     CustomElevatedButton(
-                      onTap: register,
+                      onTap: () {
+                        return viewModel.register(
+                            passwordController.text, emailController.text,
+                            context, _formKey);
+                      },
                       child: CustomTextElevatedButton(
                         text: AppLocalizations.of(context)!.create_account,
                       ),
@@ -161,11 +165,5 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   }
 
-  void register() async {
-    if (_formKey.currentState?.validate() == true) {
-      //todo:register
-      return viewModel.register(
-          passwordController.text, emailController.text, context);
-    }
-  }
+
 }

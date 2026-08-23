@@ -86,8 +86,9 @@ class _UpdateProfileState extends State<UpdateProfile> {
                     onDelete: () {
                       UtilsDialog.showMessage(
                         context: context,
-                        content: 'Are you sure you want to delete your account?',
-                        posAction: 'ok',
+                        content: AppLocalizations.of(context)!
+                            .are_you_sure_you_want_to_delete_your_account,
+                        posAction: AppLocalizations.of(context)!.ok,
                         posActions: () {
                           final user = FirebaseAuth.instance.currentUser;
 
@@ -116,8 +117,8 @@ class _UpdateProfileState extends State<UpdateProfile> {
                             viewModel.deleteAccount();
                           }
                         },
-                        negAction: 'cancel',
-                        title: 'delete account',
+                        negAction: AppLocalizations.of(context)!.cancel,
+                        title: AppLocalizations.of(context)!.delete_account,
                       );
                     },
                     onclick: () {

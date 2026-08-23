@@ -1,6 +1,5 @@
 // ignore: unused_import
 import 'package:intl/intl.dart' as intl;
-
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -249,4 +248,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get profile_updated_successfully => '\'Profile Updated Successfully';
+
+  @override
+  String get cancel => 'cancel';
+
+  @override
+  String get are_you_sure_you_want_to_delete_your_account =>
+      'Are you sure you want to delete your account?';
 }

@@ -75,7 +75,9 @@
   "register_successfully": "تم التسجيل بنجاح",
   "login_successfully": "تم تسجيل الدخول بنجاح",
   "please_check_your_email_to_reset_password": "يرجى التحقق من بريدك الإلكتروني لإعادة تعيين كلمة المرور",
-  "profile_updated_successfully": "تم تحديث الملف الشخصي بنجاح"
+  "profile_updated_successfully": "تم تحديث الملف الشخصي بنجاح",
+  "cancel": "إلغاء",
+  "are_you_sure_you_want_to_delete_your_account": "هل أنت متأكد من أنك تريد حذف حسابك؟"
 
 
 }

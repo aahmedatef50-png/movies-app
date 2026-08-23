@@ -1,6 +1,5 @@
 // ignore: unused_import
 import 'package:intl/intl.dart' as intl;
-
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -247,4 +246,11 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get profile_updated_successfully => 'تم تحديث الملف الشخصي بنجاح';
+
+  @override
+  String get cancel => 'إلغاء';
+
+  @override
+  String get are_you_sure_you_want_to_delete_your_account =>
+      'هل أنت متأكد من أنك تريد حذف حسابك؟';
 }

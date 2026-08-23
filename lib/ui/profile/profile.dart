@@ -41,14 +41,12 @@ class Profile extends StatelessWidget {
                           Expanded(
                               child: ProfileIconName(name: myUser.name,
                                 iconIndex: myUser.imageIndex,)),
-                          Expanded(
-
-                              child: CustomCountlabel(
+                          CustomCountlabel(
                             label: AppLocalizations.of(context)!.wish_list,
-                            count: 100,)),
-                          Expanded(child: CustomCountlabel(
+                            count: 100,),
+                          CustomCountlabel(
                             label: AppLocalizations.of(context)!.history,
-                            count: 10,)),
+                            count: 10,),
 
                         ],
                       ),

@@ -547,6 +547,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'\'Profile Updated Successfully'**
   String get profile_updated_successfully;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'cancel'**
+  String get cancel;
+
+  /// No description provided for @are_you_sure_you_want_to_delete_your_account.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete your account?'**
+  String get are_you_sure_you_want_to_delete_your_account;
 }
 
 class _AppLocalizationsDelegate

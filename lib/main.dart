@@ -22,14 +22,15 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  Bloc.observer = MyBlocObserver();unApp(
+  Bloc.observer = MyBlocObserver();
+  runApp(
     MultiBlocProvider(
       providers: [
         BlocProvider(create: (BuildContext context) => LanguageCubit()),
         BlocProvider(create: (context) => ImageIndexCubit()),
         BlocProvider(create: (context) => MyUserCubit()),
       ],
-      chichild: MyApp()));
+        child: MyApp()));
 }
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

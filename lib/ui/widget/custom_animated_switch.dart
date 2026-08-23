@@ -10,12 +10,16 @@ import '../../utils/app_image.dart';
 class CustomAnimatedSwitch extends StatelessWidget {
   CustomAnimatedSwitch({
     super.key,
-  });@override
+  });
+
+  @override
   Widget build(BuildContext context) {
     var height = AppConfig.height(context);
-    var width = AppConfig.width(context);eturn BlocBuilder<LanguageCubit, Locale>(
+    var width = AppConfig.width(context);
+    return BlocBuilder<LanguageCubit, Locale>(
       builder: (context, state) {
         bool isArabic = state.languageCode == 'ar';
+
         return AnimatedToggleSwitch.dual(
           current: isArabic,
           first: false,

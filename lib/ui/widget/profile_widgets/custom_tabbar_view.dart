@@ -1,21 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:my_movies_app/Ui/widget/movies_grid/movies_grid.dart';
 import 'package:my_movies_app/api/model/movies/movies.dart';
+import 'package:my_movies_app/model/favourite.dart';
 import 'package:my_movies_app/utils/app_image.dart';
+import 'package:my_movies_app/utils/firebase_osama_test.dart';
 
 import '../../../utils/app_config.dart';
 
-class CustomTabBarView extends StatelessWidget {
-  List<Movies> movies=[
-    Movies(url: "https://yts.gg/assets/images/movies/batman_knightfall_part_1_2026/large-cover.jpg",id: 1,rating: 4.4),
-    Movies(url: "https://yts.gg/assets/images/movies/batman_knightfall_part_1_2026/large-cover.jpg",id: 1,rating: 4.4),
-    Movies(url: "https://yts.gg/assets/images/movies/batman_knightfall_part_1_2026/large-cover.jpg",id: 1,rating: 4.4),
-    Movies(url: "https://yts.gg/assets/images/movies/this_is_the_zodiac_speaking_2008/large-cover.jpg",id: 1,rating: 6.3),
-    Movies(url: "https://yts.gg/assets/images/movies/this_is_the_zodiac_speaking_2008/large-cover.jpg",id: 1,rating: 6.3),
-    Movies(url: "https://yts.gg/assets/images/movies/this_is_the_zodiac_speaking_2008/large-cover.jpg",id: 1,rating: 6.3),
-    Movies(url: "https://yts.gg/assets/images/movies/this_is_the_zodiac_speaking_2008/large-cover.jpg",id: 1,rating: 6.3),
-    Movies(url: "https://yts.gg/assets/images/movies/this_is_the_zodiac_speaking_2008/large-cover.jpg",id: 1,rating: 6.3),
-  ];
+class CustomTabBarView extends StatefulWidget {
+  @override
+  State<CustomTabBarView> createState() => _CustomTabBarViewState();
+}
+
+class _CustomTabBarViewState extends State<CustomTabBarView> {
+  List<Movies> movies=[];
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getAllFaviorates();
+  }
+  void getAllFaviorates()async {
+   var querySnapShot= await FirebaseOsamaTest.getFavouritesCollection().get();
+   movies=querySnapShot.docs.map((doc){
+    return Movies(url: doc.data().url,id: doc.data().movieId,rating: doc.data().rating);
+   }).toList();
+setState(() {
+
+});
+  }
+
   @override
   Widget build(BuildContext context) {
     var width = AppConfig.width(context);

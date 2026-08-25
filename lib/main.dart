@@ -11,8 +11,14 @@ import 'package:my_movies_app/utils/app_route.dart';
 import 'package:my_movies_app/utils/app_theme.dart';
 
 import 'l10n/app_localizations.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+void main()async {
+  WidgetsFlutterBinding.ensureInitialized();
 
-void main(){
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   Bloc.observer = MyBlocObserver();
   runApp(MyApp());
 }

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:my_movies_app/Ui/widget/movies_grid/movie_card_image.dart';
 import 'package:my_movies_app/api/model/movies/movies.dart';
+import 'package:my_movies_app/model/favourite.dart';
 import 'package:my_movies_app/utils/app_color.dart';
 import 'package:my_movies_app/utils/app_image.dart';
 import 'package:my_movies_app/utils/app_style.dart';
+import 'package:my_movies_app/utils/firebase_osama_test.dart';
 
 class MovieCard extends StatelessWidget {
   const MovieCard({required this.movie});
@@ -13,6 +15,12 @@ class MovieCard extends StatelessWidget {
     return GestureDetector(
       onTap: (){
         //Todo: Go to detailes
+        FirebaseOsamaTest.addFaviorate(Favourite(url: movie.url!, rating: movie.rating!, movieId: movie.id!, userId:"118130069047949677371"))
+            .then((value) {
+              print("Add Success");
+        },).catchError((error) {
+          print(error);
+        },);
         print("Clicked Id :${movie.id}");
       },
       child: ClipRRect(

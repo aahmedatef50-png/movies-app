@@ -284,6 +284,12 @@ abstract class AppLocalizations {
   /// **'Name'**
   String get name;
 
+  /// No description provided for @character.
+  ///
+  /// In en, this message translates to:
+  /// **'Character'**
+  String get character;
+
   /// No description provided for @confirm_password.
   ///
   /// In en, this message translates to:

@@ -30,6 +30,8 @@
   "register": "Register",
   "avatar": "Avatar",
   "name": "Name",
+  "character": "Character",
+
   "confirm_password": "Confirm Password",
   "phone_number": "Phone Number",
   "create_account": "Create Account",

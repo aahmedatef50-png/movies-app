@@ -1,0 +1,140 @@
+import 'package:flutter/material.dart';
+import 'package:my_movies_app/Ui/movie_details/cubit/movie_details_states.dart';
+import 'package:my_movies_app/Ui/movie_details/cubit/movie_details_view_model.dart';
+import 'package:my_movies_app/Ui/movie_details/view/widgets/cast_section.dart';
+import 'package:my_movies_app/Ui/movie_details/view/widgets/genres_section.dart';
+import 'package:my_movies_app/Ui/movie_details/view/widgets/movie_poster_section.dart';
+import 'package:my_movies_app/Ui/movie_details/view/widgets/movie_state_section.dart';
+import 'package:my_movies_app/Ui/movie_details/view/widgets/screenshots_section.dart';
+import 'package:my_movies_app/Ui/widget/custom_elevated_button.dart';
+import 'package:my_movies_app/Ui/widget/custom_error_widget.dart';
+import 'package:my_movies_app/Ui/widget/custom_loading_widget.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_movies_app/l10n/app_localizations.dart';
+import 'package:my_movies_app/utils/app_image.dart';
+import 'package:my_movies_app/utils/app_style.dart';
+import 'package:my_movies_app/utils/size_utils.dart';
+
+import '../../../utils/app_color.dart';
+import 'widgets/movie_webview.dart';
+
+class MovieDetailsScreen extends StatefulWidget {
+  // Movie movie;
+  // MovieDetailsScreen({required this.movie});
+  MovieDetailsScreen();
+  int movieIdTest = 19;
+
+  @override
+  State<MovieDetailsScreen> createState() => _MovieDetailsScreenState();
+}
+
+class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
+  MovieDetailsViewModel viewModel = MovieDetailsViewModel();
+  @override
+  void initState() {
+    super.initState();
+
+    viewModel.getMovieDetails(widget.movieIdTest);
+    // viewModel.getMovieDetails(widget.movie.id!.toInt());
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    double width = context.width;
+    double height = context.height;
+    return Scaffold(
+      body: BlocBuilder<MovieDetailsViewModel, MovieStates>(
+        bloc: viewModel,
+        builder: (context, MovieStates state) {
+          if (state is MovieSuccessState) {
+            final movie = viewModel.movie!;
+            return SafeArea(
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    MoviePosterSection(movie: movie),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: width * .04),
+                      child: Column(
+                        spacing: height * .02,
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          CustomElevatedButton(
+                            backgroundColor: AppColor.redColor,
+                            child: Text(
+                              AppLocalizations.of(context)!.watch,
+                              style: AppStyle.bold24White,
+                            ),
+                            onTap: () {
+                              // todo go to url webview
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => MovieWebview(
+
+                                    movie: movie,
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              MovieStateSection(
+                                icon: AppImage.favoriteIcon,
+                                text: "${movie.likeCount}",
+                              ),
+                              MovieStateSection(
+                                icon: AppImage.watchIcon,
+                                text: "${movie.runtime}",
+                              ),
+                              MovieStateSection(
+                                icon: AppImage.starIcon,
+                                text: "${movie.rating}",
+                              ),
+                            ],
+                          ),
+                          ScreenshotsSection(movie: movie),
+                          Text(
+                            AppLocalizations.of(context)!.summary,
+                            style: AppStyle.bold24White,
+                          ),
+                          Text(
+                            movie.descriptionFull!,
+                            style: AppStyle.reg16White,
+                          ),
+                          CastSection(movie: movie),
+                          GenresSection(movie: movie),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          } else if (state is MovieErrorState) {
+            return Center(
+              child: CustomErrorWidget(
+                text: viewModel.errorMessage!,
+                onClick: () {
+                  viewModel.getMovieDetails(widget.movieIdTest);
+                  // viewModel.getMovieDetails(widget.movie.id!.toInt());
+                },
+              ),
+            );
+          } else {
+            return CustomLoadingWidget();
+          }
+        },
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    viewModel.close();
+    super.dispose();
+  }
+}

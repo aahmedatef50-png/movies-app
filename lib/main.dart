@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:my_movies_app/Ui/home/home_screen.dart';
+import 'package:my_movies_app/Ui/movie_details/view/movie_details_screen.dart';
 import 'package:my_movies_app/ui/auth/forget_password_screen/forget_password_screen.dart';
 import 'package:my_movies_app/ui/auth/login_screen/login_screen.dart';
 import 'package:my_movies_app/ui/auth/register_screen/register_screen.dart';
@@ -29,14 +30,15 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.dark,
 
-      initialRoute:AppRoute.onBoardingScreen ,
+      initialRoute:AppRoute.movieDetailsScreen ,
       routes: {
         AppRoute.onBoardingScreen:(context)=> OnboardingScreen(),
         AppRoute.loginScreen:(context)=> LoginScreen(),
         AppRoute.editProfileScreen:(context)=>UpdateProfile(),
         AppRoute.homeScreen:(context)=>HomeScreen(),
         AppRoute.forgetPasswordScreen:(context)=>ForgetPasswordScreen(),
-        AppRoute.registerScreen:(context)=>RegisterScreen()
+        AppRoute.registerScreen:(context)=>RegisterScreen(),
+        AppRoute.movieDetailsScreen:(context)=>MovieDetailsScreen(),
       },
 
     );

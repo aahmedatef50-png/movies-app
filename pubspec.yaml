@@ -46,6 +46,11 @@ dependencies:
   pretty_dio_logger: ^1.4.0
   bloc: ^9.2.1
   flutter_bloc: ^9.1.1
+  cached_network_image: ^3.4.1
+  fullscreen_image_viewer: ^1.2.0
+  youtube_player_flutter: ^10.0.1
+  webview_flutter: ^4.14.1
+  webview_flutter_android: ^4.14.0
 
 dev_dependencies:
   flutter_test:

@@ -4,6 +4,7 @@ import 'package:my_movies_app/api/model/movies/movies.dart';
 import 'package:my_movies_app/model/favourite.dart';
 import 'package:my_movies_app/utils/app_image.dart';
 import 'package:my_movies_app/utils/firebase_osama_test.dart';
+import 'package:my_movies_app/utils/firebase_utils.dart';
 
 import '../../../utils/app_config.dart';
 
@@ -21,7 +22,7 @@ class _CustomTabBarViewState extends State<CustomTabBarView> {
     getAllFaviorates();
   }
   void getAllFaviorates()async {
-   var querySnapShot= await FirebaseOsamaTest.getFavouritesCollection().get();
+   var querySnapShot= await FirebaseUtils.getFavouritesCollection().get();
    movies=querySnapShot.docs.map((doc){
     return Movies(url: doc.data().url,id: doc.data().movieId,rating: doc.data().rating);
    }).toList();

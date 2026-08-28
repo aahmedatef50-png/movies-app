@@ -5,7 +5,9 @@ import 'package:intl/intl.dart';
 import 'package:my_movies_app/Ui/movie_details/view/widgets/trailer_screen.dart';
 import 'package:my_movies_app/Ui/widget/custom_loading_widget.dart';
 import 'package:my_movies_app/api/model/movies_details/movie.dart';
+import 'package:my_movies_app/model/favourite.dart';
 import 'package:my_movies_app/utils/app_color.dart';
+import 'package:my_movies_app/utils/firebase_utils.dart';
 
 import '../../../../utils/app_image.dart';
 import '../../../../utils/app_style.dart';
@@ -66,8 +68,10 @@ class MoviePosterSection extends StatelessWidget {
                     },
                     ),
                     IconButton(
-                      onPressed: (){
+                      onPressed: ()async{
                         //todo: save movie to history
+                        Favourite fav=Favourite(rating: movie.rating!,url: movie.largeCoverImage!,movieId: movie.id!,userId: "s");
+                        await FirebaseUtils.addFaviorate(fav);
                       },
                       icon: Icon(
                         Icons.bookmark,

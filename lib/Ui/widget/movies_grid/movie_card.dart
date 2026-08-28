@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_movies_app/Ui/movie_details/view/movie_details_screen.dart';
 import 'package:my_movies_app/Ui/widget/movies_grid/movie_card_image.dart';
 import 'package:my_movies_app/api/model/movies/movies.dart';
 import 'package:my_movies_app/model/favourite.dart';
@@ -15,12 +16,20 @@ class MovieCard extends StatelessWidget {
     return GestureDetector(
       onTap: (){
         //Todo: Go to detailes
-        FirebaseOsamaTest.addFaviorate(Favourite(url: movie.url!, rating: movie.rating!, movieId: movie.id!, userId:"118130069047949677371"))
-            .then((value) {
-              print("Add Success");
-        },).catchError((error) {
-          print(error);
-        },);
+        // FirebaseOsamaTest.addFaviorate(Favourite(url: movie.url!, rating: movie.rating!, movieId: movie.id!, userId:"118130069047949677371"))
+        //     .then((value) {
+        //       print("Add Success");
+        // },).catchError((error) {
+        //   print(error);
+        // },);
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => MovieDetailsScreen(
+              movieId:movie.id!,
+            ),
+          ),
+        );
         print("Clicked Id :${movie.id}");
       },
       child: ClipRRect(

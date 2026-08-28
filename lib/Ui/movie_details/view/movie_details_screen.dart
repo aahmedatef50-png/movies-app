@@ -21,8 +21,12 @@ import 'widgets/movie_webview.dart';
 class MovieDetailsScreen extends StatefulWidget {
   // Movie movie;
   // MovieDetailsScreen({required this.movie});
-  MovieDetailsScreen();
-  int movieIdTest = 19;
+  final num? movieId;
+
+  const MovieDetailsScreen({
+    super.key,
+     this.movieId,
+  });
 
   @override
   State<MovieDetailsScreen> createState() => _MovieDetailsScreenState();
@@ -34,7 +38,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
   void initState() {
     super.initState();
 
-    viewModel.getMovieDetails(widget.movieIdTest);
+    viewModel.getMovieDetails(widget.movieId!.toInt());
     // viewModel.getMovieDetails(widget.movie.id!.toInt());
   }
 
@@ -119,7 +123,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
               child: CustomErrorWidget(
                 text: viewModel.errorMessage!,
                 onClick: () {
-                  viewModel.getMovieDetails(widget.movieIdTest);
+                  viewModel.getMovieDetails(widget.movieId!.toInt());
                   // viewModel.getMovieDetails(widget.movie.id!.toInt());
                 },
               ),

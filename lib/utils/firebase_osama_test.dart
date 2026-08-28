@@ -21,6 +21,6 @@ class FirebaseOsamaTest {
   }
 
 
-  //todo: get user related faviorets 
+  //todo: get user related faviorets
 
 }

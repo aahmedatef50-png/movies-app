@@ -34,12 +34,12 @@ class ApiManger {
   }
 
   /*https://movies-api.accel.li/api/v2/movie_details.json?movie_id=15&with_images=true&with_cast=true*/
-  Future<MoviesDetailsResponse> getMoviesDetails(int id) async {
+  Future<MoviesDetailsResponse> getMoviesDetails( {required int movieId}) async {
     try {
       var response = await dio.get(
         EndPoints.moviesDetailsEndPoint,
         queryParameters: {
-          'movie_id': id,
+          'movie_id':movieId,
           'with_images': true,
           'with_cast': true,
         },

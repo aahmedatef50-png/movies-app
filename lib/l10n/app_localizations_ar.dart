@@ -107,6 +107,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get name => 'الاسم';
 
   @override
+  String get character => 'الشخصية';
+
+  @override
   String get confirm_password => 'تأكيد كلمة المرور';
 
   @override

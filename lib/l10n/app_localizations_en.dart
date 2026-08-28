@@ -107,6 +107,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get name => 'Name';
 
   @override
+  String get character => 'Character';
+
+  @override
   String get confirm_password => 'Confirm Password';
 
   @override

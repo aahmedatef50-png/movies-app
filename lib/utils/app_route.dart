@@ -6,5 +6,7 @@ class AppRoute {
  static const forgetPasswordScreen = 'forget_password_screen';
  static const profileScreen = 'profile_screen';
  static const editProfileScreen = 'edit_profile_screen';
+ static const movieDetailsScreen = 'movie_details_screen';
+ static const movieWebview = 'movie_webview';
 
 }

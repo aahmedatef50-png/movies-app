@@ -27,7 +27,7 @@ class MovieCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         child: Stack(
           children: [
-            MovieCardImage(url:this.movie.url!,),
+            MovieCardImage(url:this.movie.largeCoverImage!,),
             Positioned(
                 top: 12,
                 left: 10,

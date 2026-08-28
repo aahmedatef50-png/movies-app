@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fullscreen_image_viewer/fullscreen_image_viewer.dart';
 import 'package:my_movies_app/l10n/app_localizations.dart';
 import 'package:my_movies_app/utils/app_style.dart';
 import 'package:my_movies_app/utils/size_utils.dart';

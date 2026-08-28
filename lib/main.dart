@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_movies_app/Ui/home/home_screen.dart';
+import 'package:my_movies_app/Ui/movie_details/view/movie_details_screen.dart';
 import 'package:my_movies_app/cubit/image_index_cubit.dart';
 import 'package:my_movies_app/cubit/language_cubit.dart';
 import 'package:my_movies_app/cubit/my_user_cubit.dart';
@@ -54,7 +55,9 @@ class MyApp extends StatelessWidget {
             AppRoute.editProfileScreen: (context) => UpdateProfile(),
             AppRoute.homeScreen: (context) => HomeScreen(),
             AppRoute.forgetPasswordScreen: (context) => ForgetPasswordScreen(),
-            AppRoute.registerScreen: (context) => RegisterScreen()
+            AppRoute.registerScreen: (context) => RegisterScreen(),
+            AppRoute.movieDetailsScreen:(context) => MovieDetailsScreen(),
+
           },
 
         );

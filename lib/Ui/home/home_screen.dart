@@ -4,11 +4,14 @@ import 'package:my_movies_app/Ui/home/tabs/home_tab.dart';
 import 'package:my_movies_app/Ui/home/tabs/search_tab.dart';
 import 'package:my_movies_app/Ui/home/widget/custom_bottom_navbar.dart';
 import 'package:my_movies_app/Ui/profile/profile.dart';
+import 'package:my_movies_app/api/model/movies/movies.dart';
+import 'package:my_movies_app/api/model/movies_details/movie.dart';
 import 'package:my_movies_app/utils/app_color.dart';
 import 'package:my_movies_app/utils/app_config.dart';
 import 'package:my_movies_app/utils/app_image.dart';
 
 class HomeScreen extends StatefulWidget {
+
   HomeScreen({super.key});
 
   @override
@@ -17,7 +20,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int currentIndex = 0;
-
 
 
   @override

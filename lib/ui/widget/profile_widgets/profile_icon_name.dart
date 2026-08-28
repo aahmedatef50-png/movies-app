@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:my_movies_app/model/app_model.dart';
-import 'package:my_movies_app/utils/app_image.dart';
 import 'package:my_movies_app/utils/app_style.dart';
 
 class ProfileIconName extends StatelessWidget {
@@ -18,8 +17,7 @@ class ProfileIconName extends StatelessWidget {
           height: 110,
 
         fit: BoxFit.cover,),
-        Text(name,
-          style: AppStyle.bold20White,)
+        Text(name, style: AppStyle.bold20White, textAlign: TextAlign.center),
       ],
     );
   }

@@ -499,6 +499,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'try again'**
   String get try_again;
+
+  /// No description provided for @ok.
+  ///
+  /// In en, this message translates to:
+  /// **'ok'**
+  String get ok;
+
+  /// No description provided for @error.
+  ///
+  /// In en, this message translates to:
+  /// **'Error'**
+  String get error;
+
+  /// No description provided for @success.
+  ///
+  /// In en, this message translates to:
+  /// **'Success'**
+  String get success;
+
+  /// No description provided for @loading.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading....'**
+  String get loading;
+
+  /// No description provided for @register_successfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Register Successfully'**
+  String get register_successfully;
+
+  /// No description provided for @login_successfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Login Successfully'**
+  String get login_successfully;
+
+  /// No description provided for @please_check_your_email_to_reset_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Please Check Your Email to Reset Password'**
+  String get please_check_your_email_to_reset_password;
+
+  /// No description provided for @profile_updated_successfully.
+  ///
+  /// In en, this message translates to:
+  /// **'\'Profile Updated Successfully'**
+  String get profile_updated_successfully;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'cancel'**
+  String get cancel;
+
+  /// No description provided for @are_you_sure_you_want_to_delete_your_account.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete your account?'**
+  String get are_you_sure_you_want_to_delete_your_account;
 }
 
 class _AppLocalizationsDelegate

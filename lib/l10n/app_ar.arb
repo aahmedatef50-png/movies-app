@@ -67,6 +67,17 @@
   "dio_exception_connection_error": "لا يوجد اتصال بالإنترنت. يُرجى التحقق من اتصالك والمحاولة مرة أخرى.",
   "dio_exception_bad_response": "حدث خطأ ما. يُرجى المحاولة مرة أخرى لاحقًا.",
   "dio_exception_send_time_out": "حدث خطأ أثناء تحميل البيانات. يُرجى المحاولة مرة أخرى.",
-  "try_again": "حاول مرة أخرى"
+  "try_again": "حاول مرة أخرى",
+  "ok": "حسنًا",
+  "error": "خطأ",
+  "success": "نجاح",
+  "loading": "جارٍ التحميل....",
+  "register_successfully": "تم التسجيل بنجاح",
+  "login_successfully": "تم تسجيل الدخول بنجاح",
+  "please_check_your_email_to_reset_password": "يرجى التحقق من بريدك الإلكتروني لإعادة تعيين كلمة المرور",
+  "profile_updated_successfully": "تم تحديث الملف الشخصي بنجاح",
+  "cancel": "إلغاء",
+  "are_you_sure_you_want_to_delete_your_account": "هل أنت متأكد من أنك تريد حذف حسابك؟"
+
 
 }

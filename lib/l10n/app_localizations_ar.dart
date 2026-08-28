@@ -221,4 +221,36 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get try_again => 'حاول مرة أخرى';
+
+  @override
+  String get ok => 'حسنًا';
+
+  @override
+  String get error => 'خطأ';
+
+  @override
+  String get success => 'نجاح';
+
+  @override
+  String get loading => 'جارٍ التحميل....';
+
+  @override
+  String get register_successfully => 'تم التسجيل بنجاح';
+
+  @override
+  String get login_successfully => 'تم تسجيل الدخول بنجاح';
+
+  @override
+  String get please_check_your_email_to_reset_password =>
+      'يرجى التحقق من بريدك الإلكتروني لإعادة تعيين كلمة المرور';
+
+  @override
+  String get profile_updated_successfully => 'تم تحديث الملف الشخصي بنجاح';
+
+  @override
+  String get cancel => 'إلغاء';
+
+  @override
+  String get are_you_sure_you_want_to_delete_your_account =>
+      'هل أنت متأكد من أنك تريد حذف حسابك؟';
 }

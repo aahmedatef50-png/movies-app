@@ -223,4 +223,36 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get try_again => 'try again';
+
+  @override
+  String get ok => 'ok';
+
+  @override
+  String get error => 'Error';
+
+  @override
+  String get success => 'Success';
+
+  @override
+  String get loading => 'Loading....';
+
+  @override
+  String get register_successfully => 'Register Successfully';
+
+  @override
+  String get login_successfully => 'Login Successfully';
+
+  @override
+  String get please_check_your_email_to_reset_password =>
+      'Please Check Your Email to Reset Password';
+
+  @override
+  String get profile_updated_successfully => '\'Profile Updated Successfully';
+
+  @override
+  String get cancel => 'cancel';
+
+  @override
+  String get are_you_sure_you_want_to_delete_your_account =>
+      'Are you sure you want to delete your account?';
 }

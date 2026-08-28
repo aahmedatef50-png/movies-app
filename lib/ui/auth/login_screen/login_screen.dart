@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:icon_plus/icon_plus.dart';
+import 'package:my_movies_app/ui/auth/login_screen/cubit/login_states.dart';
+import 'package:my_movies_app/ui/auth/login_screen/cubit/login_view_model.dart';
 import 'package:my_movies_app/ui/auth/login_screen/divider_or_widget.dart';
 import 'package:my_movies_app/ui/auth/login_screen/login_text_feild.dart';
 import 'package:my_movies_app/ui/widget/custom_animated_switch.dart';
@@ -9,6 +12,7 @@ import 'package:my_movies_app/ui/widget/custom_text_elevated_button.dart';
 import 'package:my_movies_app/utils/app_image.dart';
 import 'package:my_movies_app/utils/app_route.dart';
 import 'package:my_movies_app/utils/app_style.dart';
+import 'package:my_movies_app/utils/utils_dialog.dart';
 
 import '../../../l10n/app_localizations.dart';
 import '../../../utils/app_color.dart';
@@ -27,117 +31,146 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController passwordController = TextEditingController();
   bool obsure = true;
   final _formKey = GlobalKey<FormState>();
+  LoginViewModel viewModel = LoginViewModel();
+
 
   @override
   Widget build(BuildContext context) {
     var height = AppConfig.height(context);
     var width = AppConfig.width(context);
-    return Scaffold(
-      body: SafeArea(
-        child: Form(
-          key: _formKey,
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: width * 0.03,
-                vertical: height * 0.01,
-              ),
-              child: Column(
-                spacing: height * 0.03,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Image.asset(AppImage.moviesLogo, height: height * 0.2),
-                  LoginTextFeild(
-                    obsure: obsure,
-                    obscureText: () {
-                      if (obsure) {
-                        obsure = false;
-                      } else {
-                        obsure = true;
-                      }
-                      setState(() {});
-                    },
-                    emailController: emailController,
-                    passwordController: passwordController,
+    return BlocConsumer<LoginViewModel, LoginStates>(
+      bloc: viewModel,
+      buildWhen: (previous, current) {
+        return current is LoginInitialState;
+      },
+      builder: (context, state) {
+        return Scaffold(
+          body: SafeArea(
+            child: Form(
+              key: _formKey,
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: width * 0.03,
+                    vertical: height * 0.01,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                  child: Column(
+                    spacing: height * 0.03,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.of(
-                            context,
-                          ).pushNamed(AppRoute.forgetPasswordScreen);
-                        },
-                        child: Text(
-                          AppLocalizations.of(
-                            context,
-                          )!.forget_password_question,
-                          style: AppStyle.reg14Yellow,
-                        ),
-                      ),
-                    ],
-                  ),
-                  CustomElevatedButton(
-                    onTap: login,
-                    child: CustomTextElevatedButton(
-                      text: AppLocalizations.of(context)!.login,
-                    ),
-                  ),
-                  CustomRowAuth(
-                    text1: AppLocalizations.of(context)!.dont_havea_ccount,
-                    text2: AppLocalizations.of(context)!.create_one,
-                    onTap: () {
-
-                      Navigator.of(context).pushNamed(AppRoute.registerScreen);
-                    },
-                  ),
-                  DividerOrWidget(),
-
-                  CustomElevatedButton(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      spacing: width * 0.02,
-                      children: [
-                        Brand(
-                          Brands.google,
-                          colorFilter: ColorFilter.mode(
-                            AppColor.darkGreyColor,
-                            BlendMode.srcIn,
-                          ),
-                          size: 30,
-                        ),
-                        CustomTextElevatedButton(
-                          text: AppLocalizations.of(context)!.login_with_google,
-                        ),
-                      ],
-                    ),
-                    onTap: () {},
-                  ),
-                  Column(
-                    children: [
-                      CustomAnimatedSwitch(
-                        switchWidget: switchWidget,
-                        onClick: (value) {
-                          switchWidget = value;
+                      Image.asset(AppImage.moviesLogo, height: height * 0.2),
+                      LoginTextFeild(
+                        obsure: obsure,
+                        obscureText: () {
+                          if (obsure) {
+                            obsure = false;
+                          } else {
+                            obsure = true;
+                          }
                           setState(() {});
                         },
+                        emailController: emailController,
+                        passwordController: passwordController,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.of(
+                                context,
+                              ).pushNamed(AppRoute.forgetPasswordScreen);
+                            },
+                            child: Text(
+                              AppLocalizations.of(
+                                context,
+                              )!.forget_password_question,
+                              style: AppStyle.reg14Yellow,
+                            ),
+                          ),
+                        ],
+                      ),
+                      CustomElevatedButton(
+                        onTap: () {
+                          return viewModel.login(
+                              emailController.text, passwordController.text,
+                              context, _formKey);
+                        },
+                        child: CustomTextElevatedButton(
+                          text: AppLocalizations.of(context)!.login,
+                        ),
+                      ),
+                      CustomRowAuth(
+                        text1: AppLocalizations.of(context)!.dont_havea_ccount,
+                        text2: AppLocalizations.of(context)!.create_one,
+                        onTap: () {
+                          Navigator.of(context).pushNamed(
+                              AppRoute.registerScreen);
+                        },
+                      ),
+                      DividerOrWidget(),
+
+                      CustomElevatedButton(
+                        onTap: () {
+                          return viewModel.loginWithGoogle(context);
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          spacing: width * 0.02,
+                          children: [
+                            Brand(
+                              Brands.google,
+                              colorFilter: ColorFilter.mode(
+                                AppColor.darkGreyColor,
+                                BlendMode.srcIn,
+                              ),
+                              size: 30,
+                            ),
+                            CustomTextElevatedButton(
+                              text: AppLocalizations.of(context)!
+                                  .login_with_google,
+                            ),
+                          ],
+                        ),
+                      ),
+                      Column(
+                        children: [
+                          CustomAnimatedSwitch(),
+                        ],
                       ),
                     ],
                   ),
-                ],
+                ),
               ),
             ),
           ),
-        ),
-      ),
+        );
+      },
+      listener: (context, state) {
+        if (state is LoginLoadingState) {
+          UtilsDialog.showLoading(context: context,
+              content: state.loadingMessage);
+        } else if (state is LoginErrorState) {
+          UtilsDialog.hideDialog(context: context);
+          UtilsDialog.showMessage(
+              context: context,
+              posAction: AppLocalizations.of(context)!.ok,
+              content: state.errorMessage, title: state.title);
+        } else if (state is LoginSuccessState) {
+          UtilsDialog.hideDialog(context: context);
+          UtilsDialog.showMessage(
+              context: context,
+              posAction: AppLocalizations.of(context)!.ok,
+              posActions: () {
+                Navigator.of(context).pushReplacementNamed(AppRoute.homeScreen);
+              },
+              content: state.successMessage,
+              title: state.title);
+        }
+      },
     );
+
   }
 
-  void login() {
-    if (_formKey.currentState?.validate() == true) {
-      //todo:login
-      Navigator.of(context).pushNamed(AppRoute.homeScreen);
-    }
-  }
+
 }

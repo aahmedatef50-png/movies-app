@@ -5,7 +5,10 @@ import 'package:my_movies_app/utils/app_color.dart';
 import 'package:my_movies_app/utils/app_style.dart';
 
 class EditProfileButtons extends StatelessWidget {
+  VoidCallback onclick;
+  VoidCallback onDelete;
 
+  EditProfileButtons({required this.onclick, required this.onDelete});
   @override
   Widget build(BuildContext context) {
     return             Column(
@@ -16,7 +19,7 @@ class EditProfileButtons extends StatelessWidget {
           child: Text(AppLocalizations.of(context)!.delete_account,
             style: AppStyle.reg20White,
           ),
-          onTap: (){},
+          onTap: onDelete,
 
           backgroundColor: AppColor.redColor,
         ),
@@ -24,7 +27,7 @@ class EditProfileButtons extends StatelessWidget {
             child: Text(AppLocalizations.of(context)!.update_data,
               style: AppStyle.reg20DarkGrey,
             ),
-            onTap: (){}
+            onTap: onclick
         ),
       ],
     );

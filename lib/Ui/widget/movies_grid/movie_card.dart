@@ -13,6 +13,7 @@ class MovieCard extends StatelessWidget {
   final Movies movie;
   @override
   Widget build(BuildContext context) {
+    print(movie.largeCoverImage);
     return GestureDetector(
       onTap: (){
         //Todo: Go to detailes
@@ -36,7 +37,7 @@ class MovieCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         child: Stack(
           children: [
-            MovieCardImage(url:this.movie.largeCoverImage!,),
+            MovieCardImage(  url: movie.largeCoverImage ?? movie.mediumCoverImage ?? movie.smallCoverImage ?? '',),
             Positioned(
                 top: 12,
                 left: 10,

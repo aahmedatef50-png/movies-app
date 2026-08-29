@@ -6,6 +6,7 @@ import 'package:my_movies_app/Ui/movie_details/view/widgets/genres_section.dart'
 import 'package:my_movies_app/Ui/movie_details/view/widgets/movie_poster_section.dart';
 import 'package:my_movies_app/Ui/movie_details/view/widgets/movie_state_section.dart';
 import 'package:my_movies_app/Ui/movie_details/view/widgets/screenshots_section.dart';
+import 'package:my_movies_app/Ui/movie_details/view/widgets/similar_movies_section.dart';
 import 'package:my_movies_app/Ui/widget/custom_elevated_button.dart';
 import 'package:my_movies_app/Ui/widget/custom_error_widget.dart';
 import 'package:my_movies_app/Ui/widget/custom_loading_widget.dart';
@@ -52,6 +53,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
         builder: (context, MovieStates state) {
           if (state is MovieSuccessState) {
             final movie = viewModel.movie!;
+
             return SafeArea(
               child: SingleChildScrollView(
                 child: Column(
@@ -101,6 +103,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                             ],
                           ),
                           ScreenshotsSection(movie: movie),
+                          SimilarMoviesSection(movies: viewModel.similarMovies),
                           Text(
                             AppLocalizations.of(context)!.summary,
                             style: AppStyle.bold24White,

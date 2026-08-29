@@ -26,6 +26,7 @@ class _CustomTabBarViewState extends State<CustomTabBarView> {
    movies=querySnapShot.docs.map((doc){
     return Movies(url: doc.data().url,id: doc.data().movieId,rating: doc.data().rating);
    }).toList();
+   print(movies);
 setState(() {
 
 });

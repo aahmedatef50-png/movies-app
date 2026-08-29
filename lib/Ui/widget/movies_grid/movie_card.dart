@@ -11,9 +11,10 @@ import 'package:my_movies_app/utils/firebase_osama_test.dart';
 class MovieCard extends StatelessWidget {
   const MovieCard({required this.movie});
   final Movies movie;
+
   @override
   Widget build(BuildContext context) {
-    print(movie.largeCoverImage);
+    print("here ${movie.url}");
     return GestureDetector(
       onTap: (){
         //Todo: Go to detailes

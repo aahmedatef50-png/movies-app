@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_movies_app/Ui/home/home_screen.dart';
 import 'package:my_movies_app/Ui/movie_details/view/movie_details_screen.dart';
+import 'package:my_movies_app/cubit/genre_index_cubit.dart';
 import 'package:my_movies_app/cubit/image_index_cubit.dart';
 import 'package:my_movies_app/cubit/language_cubit.dart';
 import 'package:my_movies_app/cubit/my_user_cubit.dart';
@@ -30,6 +31,8 @@ void main() async {
         BlocProvider(create: (BuildContext context) => LanguageCubit()),
         BlocProvider(create: (context) => ImageIndexCubit()),
         BlocProvider(create: (context) => MyUserCubit()),
+        BlocProvider(create: (context) => GenreIndexCubit()),
+
       ],
         child: MyApp()));
 }

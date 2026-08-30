@@ -26,7 +26,9 @@ class ApiManger {
   /*https://movies-api.accel.li/api/v2/list_movies.json?quality=3D*/
   Future<MoviesResponse> getMovies() async {
     try {
-      var response = await dio.get(EndPoints.moviesEndPoint);
+      var response = await dio.get(EndPoints.moviesEndPoint, queryParameters: {
+        'limit': 40
+      });
       return MoviesResponse.fromJson(response.data);
     } catch (e) {
       rethrow;

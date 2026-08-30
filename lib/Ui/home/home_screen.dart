@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:my_movies_app/Ui/home/tabs/browser_tab.dart';
-import 'package:my_movies_app/Ui/home/tabs/home_tab.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_movies_app/Ui/home/tabs/search_tab.dart';
 import 'package:my_movies_app/Ui/home/widget/custom_bottom_navbar.dart';
 import 'package:my_movies_app/Ui/profile/profile.dart';
-import 'package:my_movies_app/api/model/movies/movies.dart';
-import 'package:my_movies_app/api/model/movies_details/movie.dart';
+import 'package:my_movies_app/ui/home/tabs/browser_tab.dart';
+import 'package:my_movies_app/ui/home/tabs/home_tab.dart';
 import 'package:my_movies_app/utils/app_color.dart';
 import 'package:my_movies_app/utils/app_config.dart';
 import 'package:my_movies_app/utils/app_image.dart';
+
+import '../../cubit/genre_index_cubit.dart';
 
 class HomeScreen extends StatefulWidget {
 
@@ -33,7 +34,13 @@ class _HomeScreenState extends State<HomeScreen> {
             IndexedStack(
               index: currentIndex,
               children: [
-                HomeTab(),
+                HomeTab(isActive: currentIndex == 0,
+                  seeMoreClick: (index) {
+                    setState(() {
+                      currentIndex = index;
+                    });
+                  }
+                  ,),
                 SearchTab(),
                 BrowserTab(),
                 Profile()
@@ -72,6 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           unselectedIcon: AppImage.searchIcon),
                       CustomBottomNavbar(onPresses: (){
                         setState(() {
+                          context.read<GenreIndexCubit>().resetIndex();
                           currentIndex = 2;
                         });
                       },

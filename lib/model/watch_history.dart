@@ -1,36 +1,44 @@
-class Favourite {
-  static const String collectionName = 'Favourites';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-  String favouriteId;
+class WatchHistory {
+  static const String collectionName = 'WatchHistory';
+
+  String historyId;
   num movieId;
   num rating;
   String largeCoverImage;
   String userId;
+  DateTime? watchedAt;
 
-  Favourite({
-    this.favouriteId = '',
+  WatchHistory({
+    this.historyId = '',
     required this.movieId,
     required this.rating,
     required this.largeCoverImage,
     required this.userId,
+    this.watchedAt,
   });
 
-  Favourite.fromJson(Map<String, dynamic> data)
+  WatchHistory.fromJson(Map<String, dynamic> data)
       : this(
-    favouriteId: data['favouriteId'] ?? '',
+    historyId: data['historyId'] ?? '',
     movieId: data['movieId'],
     rating: data['rating'],
     largeCoverImage: data['largeCoverImage'],
     userId: data['userId'],
+    watchedAt: data['watchedAt'] != null
+        ? (data['watchedAt'] as Timestamp).toDate()
+        : null,
   );
 
   Map<String, dynamic> toJson() {
     return {
-      'favouriteId': favouriteId,
+      'historyId': historyId,
       'movieId': movieId,
       'rating': rating,
       'largeCoverImage': largeCoverImage,
       'userId': userId,
+      'watchedAt': watchedAt,
     };
   }
 }

@@ -176,6 +176,18 @@ abstract class AppLocalizations {
   /// **'Screen Shots'**
   String get screen_shots;
 
+  /// No description provided for @noMoviesFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No movies found'**
+  String get noMoviesFound;
+
+  /// No description provided for @searchMovies.
+  ///
+  /// In en, this message translates to:
+  /// **'Search for movies, actors, directors...'**
+  String get searchMovies;
+
   /// No description provided for @intro_title.
   ///
   /// In en, this message translates to:

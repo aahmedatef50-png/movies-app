@@ -13,6 +13,11 @@ class AppStyle {
       fontSize: 20,
       color: AppColor.whiteColor
   );
+  static TextStyle bold16White = GoogleFonts.roboto(
+      fontWeight: FontWeight.bold,
+      fontSize: 16,
+      color: AppColor.whiteColor
+  );
   static TextStyle bold36White=GoogleFonts.roboto(
       fontWeight: FontWeight.bold,
       fontSize: 36,

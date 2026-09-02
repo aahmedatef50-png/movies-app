@@ -43,7 +43,8 @@ class AppImage {
   static const String exitIcon="${_path}exit_icon.png";
   static const String popCorn="${_path}pop_corn.png";
   static const String userIcon="${_path}user_icon.png";
- static const String avaliableNow = 'assets/images/Available Now.png';
+  static const String moviePlaceholder = "${_path}movie_placeholder.png";
+  static const String avaliableNow = 'assets/images/Available Now.png';
  static const String watchNow = 'assets/images/watch_now.png';
 
 

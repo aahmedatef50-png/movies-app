@@ -12,6 +12,8 @@
   "cast": "طاقم التمثيل",
   "character": "الشخصية",
   "similar": "أفلام مشابهة",
+  "noMoviesFound": "لم يتم العثور على أفلام",
+  "searchMovies": "ابحث عن فيلم أو ممثل أو مخرج...",
   "screen_shots": "لقطات الشاشة",
   "intro_title": "اعثر على فيلمك المفضل القادم هنا",
   "intro_body": "احصل على مكتبة ضخمة من الأفلام التي تناسب جميع الأذواق. بالتأكيد ستجد ما يعجبك.",
@@ -46,7 +48,6 @@
   "delete_account": "حذف الحساب",
   "update_data": "تحديث البيانات",
   "pick_avatar": "اختيار صورة شخصية",
-
   "repassword_doesnt_math_password": "كلمة المرور المؤكدة لا تطابق كلمة المرور",
   "please_enter_confirm_password": "يرجى إدخال تأكيد كلمة المرور",
   "password_should_be_at_least_6_chars": "يجب أن تتكون كلمة المرور من 6 أحرف على الأقل",

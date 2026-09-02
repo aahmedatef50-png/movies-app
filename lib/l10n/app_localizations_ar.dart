@@ -48,6 +48,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get screen_shots => 'لقطات الشاشة';
 
   @override
+  String get noMoviesFound => 'لم يتم العثور على أفلام';
+
+  @override
+  String get searchMovies => 'ابحث عن فيلم أو ممثل أو مخرج...';
+
+  @override
   String get intro_title => 'اعثر على فيلمك المفضل القادم هنا';
 
   @override

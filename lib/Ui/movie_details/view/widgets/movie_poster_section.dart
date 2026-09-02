@@ -1,9 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:my_movies_app/Ui/movie_details/view/widgets/trailer_screen.dart';
-import 'package:my_movies_app/Ui/widget/custom_loading_widget.dart';
 import 'package:my_movies_app/api/model/movies_details/movie.dart';
 import 'package:my_movies_app/model/favourite.dart';
 import 'package:my_movies_app/utils/app_color.dart';
@@ -26,7 +23,12 @@ class MoviePosterSection extends StatelessWidget {
         CachedNetworkImage(
           imageUrl: movie.largeCoverImage!,
           fit: BoxFit.fitWidth,
-          placeholder: (context, url) => CustomLoadingWidget(),
+          placeholder: (context, url) => Image.asset(AppImage.moviePlaceholder),
+
+          //   SizedBox(
+          // height: height*.6,
+          //   width: double.infinity,
+          //   child: CustomLoadingWidget()),
 
           errorWidget: (context, url, error) => Icon(Icons.error),
 

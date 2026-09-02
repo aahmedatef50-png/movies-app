@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_movies_app/cubit/my_user_cubit.dart';
 import 'package:my_movies_app/l10n/app_localizations.dart';
+import 'package:my_movies_app/model/favourite.dart';
+import 'package:my_movies_app/model/watch_history.dart';
 import 'package:my_movies_app/ui/widget/custom_elevated_button.dart';
 import 'package:my_movies_app/ui/widget/profile_widgets/custom_count_label.dart';
 import 'package:my_movies_app/ui/widget/profile_widgets/custom_tabBar.dart';
@@ -12,6 +14,7 @@ import 'package:my_movies_app/utils/app_config.dart';
 import 'package:my_movies_app/utils/app_image.dart';
 import 'package:my_movies_app/utils/app_route.dart';
 import 'package:my_movies_app/utils/app_style.dart';
+import 'package:my_movies_app/utils/firebase_utils.dart';
 
 class Profile extends StatelessWidget {
 
@@ -41,12 +44,29 @@ class Profile extends StatelessWidget {
                           Expanded(
                               child: ProfileIconName(name: myUser.name,
                                 iconIndex: myUser.imageIndex,)),
-                          CustomCountlabel(
-                            label: AppLocalizations.of(context)!.wish_list,
-                            count: 100,),
-                          CustomCountlabel(
-                            label: AppLocalizations.of(context)!.history,
-                            count: 10,),
+                          StreamBuilder<List<Favourite>>(
+                            stream: FirebaseUtils.getFavorites(myUser.id),
+                            builder: (context, snapshot) {
+                              final count = snapshot.data?.length ?? 0;
+
+                              return CustomCountlabel(
+                                label: AppLocalizations.of(context)!.wish_list,
+                                count: count,
+                              );
+                            },
+                          ),
+
+                          StreamBuilder<List<WatchHistory>>(
+                            stream: FirebaseUtils.getWatchHistory(myUser.id),
+                            builder: (context, snapshot) {
+                              final count = snapshot.data?.length ?? 0;
+
+                              return CustomCountlabel(
+                                label: AppLocalizations.of(context)!.history,
+                                count: count,
+                              );
+                            },
+                          ),
 
                         ],
                       ),

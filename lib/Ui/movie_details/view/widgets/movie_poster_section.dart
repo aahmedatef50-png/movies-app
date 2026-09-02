@@ -1,7 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:my_movies_app/Ui/movie_details/view/widgets/trailer_screen.dart';
 import 'package:my_movies_app/Ui/widget/custom_loading_widget.dart';
 import 'package:my_movies_app/api/model/movies_details/movie.dart';
@@ -16,6 +14,8 @@ import '../../../../utils/size_utils.dart';
 class MoviePosterSection extends StatelessWidget {
   Movie movie;
    MoviePosterSection({super.key,required this.movie});
+
+  bool isFav = false;
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +76,8 @@ class MoviePosterSection extends StatelessWidget {
                       icon: Icon(
                         Icons.bookmark,
                         size: width * .08,
-                        color: AppColor.whiteColor,
+                        color: isFav ? AppColor.yellowColor : AppColor
+                            .whiteColor,
                       ),
                     ),
                   ],

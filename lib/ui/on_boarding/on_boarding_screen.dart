@@ -129,7 +129,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     onTap: () {
                       if (currentPage == lastIndex) {
                         // todo: Navigate to Home
-                        Navigator.of(context).pushNamed(AppRoute.loginScreen);
+                        Navigator.of(context).pushReplacementNamed(
+                            AppRoute.loginScreen);
                         return;
                       }
 

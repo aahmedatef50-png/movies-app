@@ -89,6 +89,7 @@ class _BrowserTabState extends State<BrowserTab> {
                       ),
                     ),
                     Expanded(child: MoviesGrid(movies: filterMovies, cols: 2,)),
+                    SizedBox(height: height * 0.08,)
 
                   ],
                 ),

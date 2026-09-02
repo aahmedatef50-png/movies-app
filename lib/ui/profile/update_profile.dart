@@ -98,18 +98,27 @@ class _UpdateProfileState extends State<UpdateProfile> {
 
                           if (provider == 'password') {
                             showModalBottomSheet(
+                              isScrollControlled: true,
                               backgroundColor: AppColor.blackColor,
                               context: context,
                               builder: (context) {
-                                return CustomBottomSheet(
-                                  passwordController: passwordController,
-                                  onClick: () {
-                                    Navigator.pop(context);
+                                return Padding(
+                                  padding: EdgeInsets.only(
+                                    bottom: MediaQuery
+                                        .of(context)
+                                        .viewInsets
+                                        .bottom,
+                                  ),
+                                  child: CustomBottomSheet(
+                                    passwordController: passwordController,
+                                    onClick: () {
+                                      Navigator.pop(context);
 
-                                    viewModel.deleteAccount(
-                                      password: passwordController.text,
-                                    );
-                                  },
+                                      viewModel.deleteAccount(
+                                        password: passwordController.text,
+                                      );
+                                    },
+                                  ),
                                 );
                               },
                             );

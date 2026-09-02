@@ -98,23 +98,9 @@ class _SearchTabState extends State<SearchTab> {
                         builder: (context, state) {
                           if (state is SearchInitialState) {
                             return Center(
-                              child: Column(
-                                spacing: height * .04,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.search,
-                                    size: 64,
-                                    color: AppColor.greyColor,
-                                  ),
-                                  Text(
-                                    AppLocalizations.of(
-                                      context,
-                                    )!.searchMovies,
-                                    style: AppStyle.reg16Grey,
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ],
+                              child: Image.asset(
+                                AppImage.popCorn,
+                                width: width * .4,
                               ),
                             );
                           }

@@ -24,9 +24,16 @@ class ApiManger {
   }
 
   /*https://movies-api.accel.li/api/v2/list_movies.json?quality=3D*/
-  Future<MoviesResponse> getMovies() async {
+  Future<MoviesResponse> getMovies({String? queryTerm}) async {
     try {
-      var response = await dio.get(EndPoints.moviesEndPoint);
+      var response = await dio.get(
+        EndPoints.moviesEndPoint,
+        queryParameters: {
+          if (queryTerm != null && queryTerm.isNotEmpty)
+            'query_term': queryTerm,
+        },
+      );
+
       return MoviesResponse.fromJson(response.data);
     } catch (e) {
       rethrow;

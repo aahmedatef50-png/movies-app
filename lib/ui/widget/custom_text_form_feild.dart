@@ -14,6 +14,9 @@ class CustomTextFormFeild extends StatelessWidget {
     this.onValidator,
     this.obscure = false,
     this.textInputType,
+    this.onChanged,
+    this.onSubmitted,
+    this.textInputAction,
   });
 
   String hintText;
@@ -23,6 +26,11 @@ class CustomTextFormFeild extends StatelessWidget {
   TextEditingController? controller;
   bool obscure;
   TextInputType? textInputType;
+
+  //added
+  final ValueChanged<String>? onChanged;
+  final ValueChanged<String>? onSubmitted;
+  final TextInputAction? textInputAction;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +42,9 @@ class CustomTextFormFeild extends StatelessWidget {
       validator: onValidator,
       obscureText: obscure,
       obscuringCharacter: '*',
+      onChanged: onChanged,
+      onFieldSubmitted: onSubmitted,
+      textInputAction: textInputAction,
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle: AppStyle.reg16White,

@@ -48,6 +48,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get screen_shots => 'Screen Shots';
 
   @override
+  String get noMoviesFound => 'No movies found';
+
+  @override
+  String get searchMovies => 'Search for movies, actors, directors...';
+
+  @override
   String get intro_title => 'Find Your Next Favorite Movie Here';
 
   @override

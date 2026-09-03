@@ -24,16 +24,32 @@ class ApiManger {
   }
 
   /*https://movies-api.accel.li/api/v2/list_movies.json?quality=3D*/
-  Future<MoviesResponse> getMovies() async {
+  Future<MoviesResponse> getMovies({String? queryTerm}) async {
     try {
-      var response = await dio.get(EndPoints.moviesEndPoint, queryParameters: {
-        'limit': 40
-      });
+      var response = await dio.get(
+        EndPoints.moviesEndPoint,
+        queryParameters: {
+          if (queryTerm != null && queryTerm.isNotEmpty)
+            'query_term': queryTerm,
+        },
+      );
+
       return MoviesResponse.fromJson(response.data);
     } catch (e) {
       rethrow;
     }
   }
+
+  // Future<MoviesResponse> getMovies() async {
+  //   try {
+  //     var response = await dio.get(EndPoints.moviesEndPoint, queryParameters: {
+  //       'limit': 40
+  //     });
+  //     return MoviesResponse.fromJson(response.data);
+  //   } catch (e) {
+  //     rethrow;
+  //   }
+  // }
 
   /*https://movies-api.accel.li/api/v2/movie_details.json?movie_id=15&with_images=true&with_cast=true*/
   Future<MoviesDetailsResponse> getMoviesDetails( {required int movieId}) async {

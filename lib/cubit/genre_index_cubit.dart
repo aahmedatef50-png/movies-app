@@ -4,7 +4,7 @@ class GenreIndexCubit extends Cubit<int> {
   GenreIndexCubit() : super(0);
 
   void increment() {
-    int next = state == 14 ? 0 : state + 1;
+    int next = state == 12 ? 0 : state + 1;
     emit(next);
   }
 

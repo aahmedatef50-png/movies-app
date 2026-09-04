@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_movies_app/Ui/movie_details/cubit/movie_details_states.dart';
 import 'package:my_movies_app/Ui/movie_details/cubit/movie_details_view_model.dart';
 import 'package:my_movies_app/Ui/movie_details/view/widgets/cast_section.dart';
 import 'package:my_movies_app/Ui/movie_details/view/widgets/genres_section.dart';
-import 'package:my_movies_app/Ui/movie_details/view/widgets/movie_poster_section.dart';
 import 'package:my_movies_app/Ui/movie_details/view/widgets/movie_state_section.dart';
 import 'package:my_movies_app/Ui/movie_details/view/widgets/screenshots_section.dart';
 import 'package:my_movies_app/Ui/movie_details/view/widgets/similar_movies_section.dart';
 import 'package:my_movies_app/Ui/widget/custom_elevated_button.dart';
 import 'package:my_movies_app/Ui/widget/custom_error_widget.dart';
 import 'package:my_movies_app/Ui/widget/custom_loading_widget.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_movies_app/model/watch_history.dart';
+import 'package:my_movies_app/cubit/my_user_cubit.dart';
 import 'package:my_movies_app/l10n/app_localizations.dart';
+import 'package:my_movies_app/model/watch_history.dart';
+import 'package:my_movies_app/ui/movie_details/view/widgets/movie_poster_section.dart';
 import 'package:my_movies_app/utils/app_image.dart';
 import 'package:my_movies_app/utils/app_style.dart';
 import 'package:my_movies_app/utils/firebase_utils.dart';
@@ -20,7 +21,6 @@ import 'package:my_movies_app/utils/size_utils.dart';
 
 import '../../../utils/app_color.dart';
 import 'widgets/movie_webview.dart';
-import 'package:my_movies_app/cubit/my_user_cubit.dart';
 class MovieDetailsScreen extends StatefulWidget {
   // Movie movie;
   // MovieDetailsScreen({required this.movie});
@@ -62,7 +62,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    MoviePosterSection(movie: movie,userId:user.id),
+                    MoviePosterSection(movie: movie, userId: user.id),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: width * .04),
                       child: Column(

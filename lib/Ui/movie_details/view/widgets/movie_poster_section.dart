@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_movies_app/Ui/movie_details/view/widgets/trailer_screen.dart';
 import 'package:my_movies_app/Ui/widget/custom_loading_widget.dart';
@@ -120,6 +119,8 @@ class _MoviePosterSectionState extends State<MoviePosterSection> {
     }
   }
 
+  bool isFav = false;
+
   @override
   Widget build(BuildContext context) {
     double width = context.width;
@@ -181,7 +182,8 @@ class _MoviePosterSectionState extends State<MoviePosterSection> {
                             ? Icons.bookmark
                             : Icons.bookmark_border,
                         size: width * .08,
-                        color: AppColor.whiteColor,
+                        color: isFav ? AppColor.yellowColor : AppColor
+                            .whiteColor,
                       ),
                     ),
                   ],
